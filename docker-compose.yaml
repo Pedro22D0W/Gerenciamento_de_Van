@@ -1,0 +1,51 @@
+services:
+  backend:
+    build: ./back-end/proj_vans
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./back-end/proj_vans:/app  # Mapeia o código local para o container
+      - /app/target  # Ignora a pasta de build
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/transporte_vans_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+  frontend:
+    build: ./front-end/proj_van
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./front-end/proj_van:/app  # Mapear o código local para dentro do container
+      - /app/node_modules  # Ignorar node_modules para evitar conflito
+    
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Necessário para que o hot-reload funcione no Docker
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_DB: transporte_vans_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    driver: bridge
