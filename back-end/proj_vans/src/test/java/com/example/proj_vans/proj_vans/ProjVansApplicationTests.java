@@ -1,10 +1,10 @@
-package com.example.projvan.proj_van;
+package com.example.proj_vans.proj_vans;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjVanApplicationTests {
+class ProjVansApplicationTests {
 
 	@Test
 	void contextLoads() {
