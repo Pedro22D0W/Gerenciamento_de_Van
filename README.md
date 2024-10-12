@@ -12,7 +12,7 @@ Para iniciar o projeto, siga os passos abaixo:
 
 2. Execute o comando:
 ```sh
-docker compose up --watch --build
+docker compose up --build
 ```
 
 
