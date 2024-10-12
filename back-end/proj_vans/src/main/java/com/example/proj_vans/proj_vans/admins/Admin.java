@@ -14,5 +14,4 @@ public class Admin {
     private String password;
     private Long role;
 
-
 }
