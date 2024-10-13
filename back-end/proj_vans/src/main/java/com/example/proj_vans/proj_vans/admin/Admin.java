@@ -1,4 +1,4 @@
-package com.example.proj_vans.proj_vans.admins;
+package com.example.proj_vans.proj_vans.admin;
 
 import jakarta.persistence.*;
 
