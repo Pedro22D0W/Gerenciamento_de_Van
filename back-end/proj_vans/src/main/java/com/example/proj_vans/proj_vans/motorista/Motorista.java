@@ -2,8 +2,8 @@ package com.example.proj_vans.proj_vans.motorista;
 
 import jakarta.persistence.*;
 
-@Table(name="motoristas")
-@Entity(name = "motorostas")
+@Table(name= "motoristas")
+@Entity(name= "motoristas")
 public class Motorista {
 
     @Id
