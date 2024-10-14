@@ -1,6 +1,7 @@
 package com.example.proj_vans.proj_vans.passageiro;
 
 import jakarta.persistence.*;
+import java.sql.Time;
 
 @Table(name="passageiros")
 @Entity(name = "passageiros")
@@ -12,6 +13,9 @@ public class Passageiro {
     private String nome;
     private String senha;
     private String cpf;
+    private String logradouro;
+    private Time retorno;
+    private Time ida;
     private String telefone;
     private Long linha;
     private Long role;
@@ -20,10 +24,13 @@ public class Passageiro {
     }
 
 
-    public Passageiro(String nome, String senha, String cpf, String telefone, Long linha, Long role) {
+    public Passageiro(String nome, String senha, String cpf, String logradouro, Time retorno, Time ida, String telefone, Long linha, Long role) {
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
+        this.logradouro = logradouro;
+        this.retorno = retorno;
+        this.ida = ida;
         this.telefone = telefone;
         this.linha = linha;
         this.role = role;
@@ -60,6 +67,30 @@ public class Passageiro {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setRetorno(Time retorno) {
+        this.retorno = retorno;
+    }
+
+    public Time getRetorno() {
+        return retorno;
+    }
+
+    public void setIda(Time ida) {
+        this.ida = ida;
+    }
+
+    public Time getIda() {
+        return ida;
     }
 
     public String getTelefone() {
