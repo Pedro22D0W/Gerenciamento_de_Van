@@ -22,16 +22,15 @@ export class FormularioPassageiroComponent {
         Validators.minLength(2),
         Validators.maxLength(100)
       ]),
+      senha: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6) // Validação de mínimo 6 caracteres para senha
+      ]),
       cpf: new FormControl('', [
         Validators.required,
         Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/) // Formato de CPF (xxx.xxx.xxx-xx)
       ]),
       logradouro: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(150)
-      ]),
-      destino: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(150)
