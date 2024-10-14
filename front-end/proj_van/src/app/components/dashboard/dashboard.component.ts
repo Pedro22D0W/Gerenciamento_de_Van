@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Header2Component } from "../header-2/header-2.component";
 
@@ -10,5 +10,5 @@ import { Header2Component } from "../header-2/header-2.component";
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-
+  @Input() title: string = '';
 }

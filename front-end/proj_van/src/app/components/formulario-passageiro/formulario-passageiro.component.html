@@ -1,0 +1,26 @@
+<section class="form-section">
+    <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> <!-- Adicionado ngSubmit -->
+      <label for="nome">Nome:</label>
+      <input id="nome" formControlName="nome" type="text" />
+  
+      <label for="cpf">CPF:</label>
+      <input id="cpf" formControlName="cpf" type="text" maxlength="11" placeholder="Digite seu CPF sem pontos ou traços"> <!-- Adicionado formControlName -->
+  
+      <label for="logradouro">Logradouro:</label>
+      <input id="logradouro" formControlName="logradouro" type="text" />
+  
+      <label for="destino">Destino:</label>
+      <input id="destino" formControlName="destino" type="text" />
+  
+      <label for="volta">Horário de Volta:</label>
+      <select id="volta" formControlName="volta"> <!-- Tag de fechamento corrigida -->
+        <option value="11:30">11h30</option>
+        <option value="12:00">12h</option>
+        <option value="16:00">16h</option>
+        <option value="17:00">17h</option>
+      </select>
+  
+      <button type="submit" class="btn-primary">Submeter Formulário</button> <!-- Corrigido para um botão submit -->
+    </form>
+</section>
+  

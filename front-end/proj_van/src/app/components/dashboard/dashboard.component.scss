@@ -1,3 +1,8 @@
+@import "../../../styles/variables"; /* Importando as variáveis de estilo */
+
+main {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 .dashboard-container {
     display: flex;
     flex-direction: column;
@@ -11,10 +16,9 @@
 
 .dashboard-title {
     font-size: 26px; /* Aumentando o tamanho da fonte do título */
-    font-family: Arial, sans-serif;
     margin: 0; /* Remove margens padrão */
     padding-bottom: 10px; /* Espaçamento entre o título e o conteúdo */
-    color: rgb(0, 0, 0); /* Cor do texto */
+    color: $primaryColor; /* Cor do texto */
     align-self: flex-start; /* Isso alinha o título à esquerda */
     padding-left: 20px; /* Espaçamento à esquerda para distanciar da borda */
 }
@@ -22,9 +26,9 @@
 .dashboard-content {
     width: 100%; /* Ocupar 100% da largura do contêiner da dashboard */
     max-width: 1200px; /* Define a largura máxima */
-    background-color: white; /* Fundo branco */
-    border: 2px solid #ffffff; /* Cor da borda */
-    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2); /* Sombra */
+    background-color: $backgroundColor; /* Fundo branco */
+    border: 2px solid $backgroundColor; /* Cor da borda */
+    box-shadow: 0 0px 3px $shadowColor; /* Sombra */
     padding: 30px;
     border-radius: 3px; /* Borda arredondada (opcional) */
     box-sizing: border-box; /* Inclui o padding e a borda na largura total */
@@ -32,5 +36,4 @@
 
 .dashboard-text {
     font-size: 30px; /* Tamanho da fonte para o texto */
-    font-family: Arial, sans-serif;
 }
