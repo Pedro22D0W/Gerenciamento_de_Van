@@ -1,7 +1,7 @@
 package com.example.proj_vans.proj_vans.controllers;
 
-import com.example.proj_vans.proj_vans.motorista.Motorista;
-import com.example.proj_vans.proj_vans.motorista.MotoristaRepository;
+import com.example.proj_vans.proj_vans.passageiro.Passageiro;
+import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @RestController
-@RequestMapping("motorista")
-public class MotoristaController {
+@RequestMapping("passageiro")
+public class PassageiroController {
     @Autowired
-    private MotoristaRepository repository;
+    private PassageiroRepository repository;
 
     @PostMapping
-    public void StoreMotorista(@RequestBody Motorista data){
+    public void StorePassageiro(@RequestBody Passageiro data){
         repository.save(data);
     }
 
     @GetMapping
-    public List<Motorista> GetMotoristas(){
+    public List<Passageiro> GetPassageiros(){
         return repository.findAll();
     }
+    
 }

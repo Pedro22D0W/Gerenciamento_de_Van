@@ -1,29 +1,36 @@
-package com.example.proj_vans.proj_vans.motorista;
+package com.example.proj_vans.proj_vans.passageiro;
 
 import jakarta.persistence.*;
+import java.sql.Time;
 
-@Table(name= "motoristas")
-@Entity(name= "motoristas")
-public class Motorista {
+@Table(name="passageiros")
+@Entity(name = "passageiros")
+public class Passageiro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String senha;
-    private String cnh;
+    private String cpf;
+    private String logradouro;
+    private Time retorno;
+    private Time ida;
     private String telefone;
     private Long linha;
     private Long role;
 
-    public Motorista() {
+    public Passageiro() {
     }
 
 
-    public Motorista(String nome, String senha, String cnh, String telefone, Long linha, Long role) {
+    public Passageiro(String nome, String senha, String cpf, String logradouro, Time retorno, Time ida, String telefone, Long linha, Long role) {
         this.nome = nome;
         this.senha = senha;
-        this.cnh = cnh;
+        this.cpf = cpf;
+        this.logradouro = logradouro;
+        this.retorno = retorno;
+        this.ida = ida;
         this.telefone = telefone;
         this.linha = linha;
         this.role = role;
@@ -54,12 +61,36 @@ public class Motorista {
         this.senha = senha;
     }
 
-    public String getCnh() {
-        return cnh;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setRetorno(Time retorno) {
+        this.retorno = retorno;
+    }
+
+    public Time getRetorno() {
+        return retorno;
+    }
+
+    public void setIda(Time ida) {
+        this.ida = ida;
+    }
+
+    public Time getIda() {
+        return ida;
     }
 
     public String getTelefone() {
