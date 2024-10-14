@@ -1,0 +1,29 @@
+.btn{
+    border: none;
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    &:disabled{
+        opacity: 0.6;
+    }
+
+    &.primary{
+        color: blue;
+        background-color: white;
+
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 30px;
+    }
+
+    &.secundary{
+        color: white;
+        background-color: blue;
+
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 30px;
+    }
+
+}

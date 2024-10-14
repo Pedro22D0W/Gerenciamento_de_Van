@@ -1,0 +1,18 @@
+<section class="form-section">
+    <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> <!-- Adicionado ngSubmit -->
+      <label for="nome">Nome:</label>
+      <input id="nome" formControlName="nome" type="text" />
+
+      <label for="senha">Senha:</label>
+      <input id="senha" formControlName="senha" type="password" />
+  
+      <label for="cnh">CNH:</label>
+      <input id="cnh" formControlName="cnh" type="text" maxlength="11" placeholder="Digite sua CNH sem pontos ou traços"> <!-- Adicionado formControlName -->
+  
+      <label for="linha">Linha:</label>
+      <input id="linha" formControlName="linha" type="number" />
+  
+      <button type="submit" class="btn-primary">Submeter Formulário</button> <!-- Corrigido para um botão submit -->
+    </form>
+</section>
+  

@@ -1,0 +1,62 @@
+@import "../../../styles/variables";
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 40px 70px;
+
+    background-color: $primaryColor; /* Cor de fundo do formulário */
+    width: 40%; /* Ajusta a largura do formulário */
+    margin: 10px auto; /* Adiciona margem superior/inferior e centraliza horizontalmente */
+    padding: 20px; /* Adiciona preenchimento interno */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0px 0px 2px $shadowColor; /* Adiciona uma leve sombra para destacar */
+
+    color: $backgroundColor;
+
+    form{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        font-weight: bold;
+
+        input{
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 40px;
+            color: $backgroundColor;
+        }
+
+        input::placeholder {
+            color: #e7e1e1; /* Cor branca para o placeholder */
+            opacity: 0.7; /* Opacidade total para garantir que o branco seja visível */
+        }
+    }
+}
+
+@media (min-width: 1080px){
+    .form-section{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.btn-primary{
+    background-color: $backgroundColor; /* Cor de fundo do botão */
+    color: $primaryColor; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 20px; /* Adiciona preenchimento interno */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    font-weight: bold; /* Deixa o texto em negrito */
+    transition: background-color 0.2s; /* Adiciona uma transição suave de cor de fundo */
+}
