@@ -22,8 +22,8 @@ docker compose up --build
 psql -h localhost -p 5432 -U user -d transporte_vans_db
 ```
 3. Comandos:
-   - SHOW * FROM passageiros;
-   - SHOW * FROM motoristas;
+   - SELECT * FROM passageiros;
+   - SELECT * FROM motoristas;
 
 
 ## Portas
