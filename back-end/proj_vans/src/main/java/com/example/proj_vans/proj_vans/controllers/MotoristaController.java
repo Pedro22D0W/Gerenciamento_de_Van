@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
 @RestController
 @RequestMapping("motorista")
@@ -16,9 +18,11 @@ public class MotoristaController {
 
     @PostMapping
     public void StoreMotorista(@RequestBody Motorista data){
-
-    repository.save(data);
-
+        repository.save(data);
     }
 
+    @GetMapping
+    public List<Motorista> GetMotoristas(){
+        return repository.findAll();
+    }
 }

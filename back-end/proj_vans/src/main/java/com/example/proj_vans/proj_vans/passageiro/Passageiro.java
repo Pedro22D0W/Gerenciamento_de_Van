@@ -46,12 +46,12 @@ public class Passageiro {
         this.nome = nome;
     }
 
-    public String getPassword() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setPassword(String password) {
-        this.senha = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getCpf() {
