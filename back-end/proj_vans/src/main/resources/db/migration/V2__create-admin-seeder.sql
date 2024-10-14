@@ -1,0 +1,1 @@
+insert into admins (user_name,password,role) values ('admin','password',0);

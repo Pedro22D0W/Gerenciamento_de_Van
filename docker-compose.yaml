@@ -31,7 +31,7 @@ services:
       - app-network
 
   database:
-    image: postgres
+    image: postgres:15.0
     environment:
       POSTGRES_DB: transporte_vans_db
       POSTGRES_USER: user
