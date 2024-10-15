@@ -14,7 +14,6 @@ public class Motorista {
     private String cnh;
     private String telefone;
     private Long linha;
-    private Long role;
 
     public Motorista() {
     }
@@ -26,7 +25,6 @@ public class Motorista {
         this.cnh = cnh;
         this.telefone = telefone;
         this.linha = linha;
-        this.role = role;
     }
 
 
@@ -76,14 +74,6 @@ public class Motorista {
 
     public void setLinha(Long linha) {
         this.linha = linha;
-    }
-
-    public Long getRole() {
-        return role;
-    }
-
-    public void setRole(Long role) {
-        this.role = role;
     }
 }
 

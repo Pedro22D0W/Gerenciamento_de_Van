@@ -15,25 +15,21 @@ public class Passageiro {
     private String cpf;
     private String logradouro;
     private Time retorno;
-    private Time ida;
     private String telefone;
     private Long linha;
-    private Long role;
 
     public Passageiro() {
     }
 
 
-    public Passageiro(String nome, String senha, String cpf, String logradouro, Time retorno, Time ida, String telefone, Long linha, Long role) {
+    public Passageiro(String nome, String senha, String cpf, String logradouro, Time retorno, String telefone, Long linha, Long role) {
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
         this.logradouro = logradouro;
         this.retorno = retorno;
-        this.ida = ida;
         this.telefone = telefone;
         this.linha = linha;
-        this.role = role;
     }
 
 
@@ -85,14 +81,6 @@ public class Passageiro {
         return retorno;
     }
 
-    public void setIda(Time ida) {
-        this.ida = ida;
-    }
-
-    public Time getIda() {
-        return ida;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -107,14 +95,6 @@ public class Passageiro {
 
     public void setLinha(Long linha) {
         this.linha = linha;
-    }
-
-    public Long getRole() {
-        return role;
-    }
-
-    public void setRole(Long role) {
-        this.role = role;
     }
 }
 

@@ -49,6 +49,7 @@ export class FormularioMotoristaComponent {
     if (this.formularioForms.valid) {
       // Faz a requisição para a API
       this.service.postMotorista(this.formularioForms.value).subscribe({
+      this.service.StoreMotorista(this.formularioForms.value).subscribe({
         next: (response) => {
           console.log('Motorista cadastrado com sucesso!', response);
           this.formularioForms.reset(); // Limpa o formulário após sucesso

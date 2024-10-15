@@ -9,7 +9,7 @@ export class VansAPIService {
 
   constructor(private client: HttpClient) { }
 
-  postMotorista(motorista: any): Observable<any>{
+  StoreMotorista(motorista: any): Observable<any>{
     return this.client.post("http://localhost:8080/motorista",motorista)
   }
 }

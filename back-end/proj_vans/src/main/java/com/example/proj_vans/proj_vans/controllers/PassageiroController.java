@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("passageiro")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PassageiroController {
     @Autowired
     private PassageiroRepository repository;
