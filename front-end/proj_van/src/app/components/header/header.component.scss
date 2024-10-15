@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-container img {
+    width: 110px;
+    height: 110px;
+}

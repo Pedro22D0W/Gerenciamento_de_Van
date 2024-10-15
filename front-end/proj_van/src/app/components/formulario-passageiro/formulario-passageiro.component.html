@@ -1,0 +1,38 @@
+<section class="form-section">
+  <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> <!-- Adicionado ngSubmit -->
+    
+    <label for="nome">Nome:</label>
+    <input id="nome" formControlName="nome" type="text" />
+
+    <label for="senha">Senha:</label>
+    <input id="senha" formControlName="senha" type="password" />
+
+    <label for="cpf">CPF:</label>
+    <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> <!-- Adicionado formControlName -->
+
+    <label for="logradouro">Logradouro:</label>
+    <input id="logradouro" formControlName="logradouro" type="text" />
+
+    <label for="telefone">Telefone:</label>
+    <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" /> <!-- Novo campo de telefone -->
+
+    <label for="linha">Linha:</label>
+    <input id="linha" formControlName="linha" type="number" />
+
+    <label for="retorno">Horário de retorno:</label>
+    <select id="retorno" formControlName="retorno">
+      <option value="11:30:00">11h30 </option>
+      <option value="12:00:00">12h</option>
+      <option value="16:00:00">16h</option>
+      <option value="17:00:00">17h</option>
+    </select>
+
+    <btn-primary 
+      btn-text = "Submeter Formulário"
+      (submit) = "onSubmit()"
+      [disabled] = "!formularioForms.valid"
+      >
+    </btn-primary>
+
+  </form>
+</section>

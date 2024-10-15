@@ -1,0 +1,27 @@
+<section class="form-section">
+    <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()">
+      <label for="nome">Nome:</label>
+      <input id="nome" formControlName="nome" type="text" />
+
+      <label for="senha">Senha:</label>
+      <input id="senha" formControlName="senha" type="password" />
+  
+      <label for="cnh">CNH:</label>
+      <input id="cnh" formControlName="cnh" type="text" placeholder="Digite sua CNH sem pontos ou traços">
+      
+      <label for="telefone">Telefone:</label>
+      <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" />
+
+      <label for="linha">Linha:</label>
+      <input id="linha" formControlName="linha" type="number" />
+  
+      <btn-primary 
+        btn-text="Submeter Formulário"
+        (submit)="onSubmit()"
+        [disabled]="!formularioForms.valid"
+      ></btn-primary>
+
+
+    </form>
+</section>
+  
