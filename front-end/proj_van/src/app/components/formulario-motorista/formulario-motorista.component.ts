@@ -40,7 +40,6 @@ export class FormularioMotoristaComponent {
       ]),
       linha: new FormControl('', [
         Validators.required,
-        Validators.min(1)
       ])
     });
   }
