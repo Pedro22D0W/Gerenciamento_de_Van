@@ -1,5 +1,5 @@
 <section class="form-section">
-  <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> <!-- Adicionado ngSubmit -->
+  <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> 
     
     <label for="nome">Nome:</label>
     <input id="nome" formControlName="nome" type="text" />
@@ -8,13 +8,13 @@
     <input id="senha" formControlName="senha" type="password" />
 
     <label for="cpf">CPF:</label>
-    <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> <!-- Adicionado formControlName -->
+    <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> 
 
     <label for="logradouro">Logradouro:</label>
     <input id="logradouro" formControlName="logradouro" type="text" />
 
     <label for="telefone">Telefone:</label>
-    <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" /> <!-- Novo campo de telefone -->
+    <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" /> 
 
     <label for="linha">Linha:</label>
     <input id="linha" formControlName="linha" type="number" />
