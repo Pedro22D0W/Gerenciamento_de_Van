@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports:
   [HeaderComponent, 
    Header2Component,
-   CommonModule], // Importando o Header2Component e o CommonModule
+   CommonModule],
  
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
