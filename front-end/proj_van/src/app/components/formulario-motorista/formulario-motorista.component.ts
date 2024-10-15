@@ -32,6 +32,10 @@ export class FormularioMotoristaComponent {
         Validators.required,
         Validators.pattern(/^\d{11}$/) // CNH com 11 dígitos
       ]),
+      telefone: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
+      ]),
       linha: new FormControl('', [
         Validators.required,
         Validators.min(1) // Validação de número mínimo para a linha
@@ -53,6 +57,7 @@ export class FormularioMotoristaComponent {
       });
     } else {
       console.log('Formulário inválido. Por favor, verifique os campos.') ;
+      console.log(this.formularioForms.value)
     }
   }
 }

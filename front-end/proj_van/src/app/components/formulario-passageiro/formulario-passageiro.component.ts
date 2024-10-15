@@ -35,6 +35,10 @@ export class FormularioPassageiroComponent {
         Validators.minLength(5),
         Validators.maxLength(150)
       ]),
+      telefone: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
+      ]),
       volta: new FormControl('', [
         Validators.required,
         Validators.pattern(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/) // Formato HH:mm
