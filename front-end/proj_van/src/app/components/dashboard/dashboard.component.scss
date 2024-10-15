@@ -37,3 +37,49 @@ main {
 .dashboard-text {
     font-size: 30px; /* Tamanho da fonte para o texto */
 }
+
+//--------------------Table---------------------
+.motoristas {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.motoristas h2 {
+    text-align: center;
+    color: #333;
+}
+
+.passageiros {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.passageiros h2 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
