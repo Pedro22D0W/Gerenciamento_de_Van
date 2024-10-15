@@ -14,19 +14,17 @@ public class Motorista {
     private String cnh;
     private String telefone;
     private Long linha;
-    private Long role;
 
     public Motorista() {
     }
 
 
-    public Motorista(String nome, String senha, String cnh, String telefone, Long linha, Long role) {
+    public Motorista(String nome, String senha, String cnh, String telefone, Long linha) {
         this.nome = nome;
         this.senha = senha;
         this.cnh = cnh;
         this.telefone = telefone;
         this.linha = linha;
-        this.role = role;
     }
 
 
@@ -76,14 +74,6 @@ public class Motorista {
 
     public void setLinha(Long linha) {
         this.linha = linha;
-    }
-
-    public Long getRole() {
-        return role;
-    }
-
-    public void setRole(Long role) {
-        this.role = role;
     }
 }
 

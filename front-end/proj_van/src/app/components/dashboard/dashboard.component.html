@@ -1,10 +1,60 @@
 <main>
-<app-header></app-header>
-<app-header-2></app-header-2>
-<div class="dashboard-container">
+  <app-header></app-header>
+  <app-header-2></app-header-2>
+  <div class="dashboard-container">
     <h1 class="dashboard-title">Dashboard</h1>
     <div class="dashboard-content">
-      <!-- Você pode adicionar outros elementos e implementações futuras aqui -->
+      <section class="motoristas">
+        <h2>Motoristas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CNH</th>
+              <th>Telefone</th>
+              <th>Linha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let motorista of motoristas">
+              <td>{{ motorista.id }}</td>
+              <td>{{ motorista.nome }}</td>
+              <td>{{ motorista.cnh }}</td>
+              <td>{{ motorista.telefone }}</td>
+              <td>{{ motorista.linha }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="passageiros">
+        <h2>Passageiros</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Logradouro</th>
+              <th>Retorno</th>
+              <th>Telefone</th>
+              <th>Linha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let passageiro of passageiros">
+              <td>{{ passageiro.id }}</td>
+              <td>{{ passageiro.nome }}</td>
+              <td>{{ passageiro.cpf }}</td>
+              <td>{{ passageiro.logradouro }}</td>
+              <td>{{ passageiro.retorno }}</td> <!-- Agora deve funcionar -->
+              <td>{{ passageiro.telefone }}</td>
+              <td>{{ passageiro.linha }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
   </div>
 </main>

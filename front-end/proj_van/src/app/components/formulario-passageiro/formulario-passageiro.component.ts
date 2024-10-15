@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BotaoPrimarioComponent } from '../botao-primario/botao-primario.component';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { VansAPIService } from '../../services/vans-api.service';
 
 @Component({
   selector: 'app-formulario-passageiro',
@@ -15,7 +16,7 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 export class FormularioPassageiroComponent {
   formularioForms: FormGroup;
 
-  constructor() {
+  constructor(private service: VansAPIService) {
     this.formularioForms = new FormGroup({
       nome: new FormControl('', [
         Validators.required,
@@ -28,7 +29,9 @@ export class FormularioPassageiroComponent {
       ]),
       cpf: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/) // Formato de CPF (xxx.xxx.xxx-xx)
+        Validators.minLength(11),
+        Validators.maxLength(11)
+        // Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/),
       ]),
       logradouro: new FormControl('', [
         Validators.required,
@@ -37,16 +40,35 @@ export class FormularioPassageiroComponent {
       ]),
       telefone: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
+        Validators.minLength(11),
+        Validators.maxLength(11)
+        // Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
       ]),
-      volta: new FormControl('', [
+      linha: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/) // Formato HH:mm
+      ]),
+      retorno: new FormControl('', [
+        Validators.required,
+        //Validators.pattern(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-9[0-9]$/) // Formato HH:mm
       ])
     });
   }
 
   onSubmit() {
-    console.log(this.formularioForms.value);
+    if (this.formularioForms.valid) {
+      // Faz a requisição para a API
+      this.service.StorePassageiro(this.formularioForms.value).subscribe({
+        next: (response) => {
+          console.log('Passageiro cadastrado com sucesso!', response);
+          this.formularioForms.reset(); // Limpa o formulário após sucesso
+        },
+        error: (err) => {
+          console.error('Erro ao cadastrar Passageiro:', err);
+        },
+      });
+    } else {
+      console.log('Formulário inválido. Por favor, verifique os campos.') ;
+      console.log(this.formularioForms.value)
+    }
   }
 }

@@ -5,6 +5,7 @@ import { FormularioMotoristaComponent } from '../formulario-motorista/formulario
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { BotaoPrimarioComponent } from '../botao-primario/botao-primario.component';
 import { Router } from '@angular/router';
+import { VansAPIService } from '../../services/vans-api.service';
 
 @Component({
   selector: 'app-cadastro-motorista',
@@ -20,7 +21,11 @@ import { Router } from '@angular/router';
   styleUrl: './cadastro-motorista.component.scss'
 })
 export class CadastroMotoristaComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    
+  }
+  
+ 
 
   voltar() {
     this.router.navigate(['/']);
