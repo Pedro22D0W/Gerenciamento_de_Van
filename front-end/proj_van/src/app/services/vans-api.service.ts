@@ -12,4 +12,8 @@ export class VansAPIService {
   StoreMotorista(motorista: any): Observable<any>{
     return this.client.post("http://localhost:8080/motorista",motorista)
   }
+
+  StorePassageiro(passageiro: any): Observable<any>{
+    return this.client.post("http://localhost:8080/passageiro",passageiro)
+  }
 }

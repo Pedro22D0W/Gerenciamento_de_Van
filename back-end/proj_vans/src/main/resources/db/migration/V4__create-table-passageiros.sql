@@ -6,5 +6,5 @@ CREATE TABLE passageiros(
     logradouro TEXT NOT NULL,
     retorno TIME NOT NULL,
     telefone TEXT NOT NULL,
-    linha INTEGER NOT NULL,
+    linha INTEGER NOT NULL
  );

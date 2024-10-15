@@ -19,7 +19,7 @@ public class Motorista {
     }
 
 
-    public Motorista(String nome, String senha, String cnh, String telefone, Long linha, Long role) {
+    public Motorista(String nome, String senha, String cnh, String telefone, Long linha) {
         this.nome = nome;
         this.senha = senha;
         this.cnh = cnh;
