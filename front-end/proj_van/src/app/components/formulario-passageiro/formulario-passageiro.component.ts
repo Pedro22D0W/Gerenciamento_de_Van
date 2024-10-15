@@ -28,7 +28,9 @@ export class FormularioPassageiroComponent {
       ]),
       cpf: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/) // Formato de CPF (xxx.xxx.xxx-xx)
+        Validators.minLength(11),
+        Validators.maxLength(11)
+        // Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/),
       ]),
       logradouro: new FormControl('', [
         Validators.required,
@@ -37,7 +39,9 @@ export class FormularioPassageiroComponent {
       ]),
       telefone: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
+        Validators.minLength(11),
+        Validators.maxLength(11)
+        // Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
       ]),
       volta: new FormControl('', [
         Validators.required,

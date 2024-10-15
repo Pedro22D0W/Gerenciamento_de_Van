@@ -1,29 +1,18 @@
+@import '../../../styles/variables.scss';
+
 .btn{
-    border: none;
-    border-radius: 30px;
-
-    cursor: pointer;
-
     &:disabled{
         opacity: 0.6;
     }
 
-    &.primary{
-        color: blue;
-        background-color: white;
-
-        font-size: 15px;
-        font-weight: bold;
-        padding: 10px 30px;
-    }
-
-    &.secundary{
-        color: white;
-        background-color: blue;
-
-        font-size: 15px;
-        font-weight: bold;
-        padding: 10px 30px;
-    }
+    background-color: $backgroundColor; /* Cor de fundo do botão */
+    color: $primaryColor; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 20px; /* Adiciona preenchimento interno */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    font-weight: bold; /* Deixa o texto em negrito */
+    transition: background-color 0.2s; /* Adiciona uma transição suave de cor de fundo */
+    margin-top: 20px; /* Adiciona margem superior para afastar o botão */
 
 }
