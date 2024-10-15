@@ -20,7 +20,7 @@ export class BotaoPrimarioComponent {
   constructor(private router: Router) {} // Injeta o Router
 
   // Corrigido o nome do Output para evitar conflito com o evento nativo 'submit'
-  @Output("submit") onSubmit = new EventEmitter();
+  @Output("ButtonSubmit") onSubmit = new EventEmitter();
 
   submit() {
     this.onSubmit.emit();
