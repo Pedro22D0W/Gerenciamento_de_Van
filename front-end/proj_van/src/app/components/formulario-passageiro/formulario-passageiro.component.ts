@@ -25,13 +25,12 @@ export class FormularioPassageiroComponent {
       ]),
       senha: new FormControl('', [
         Validators.required,
-        Validators.minLength(6) // Validação de mínimo 6 caracteres para senha
+        Validators.minLength(6)
       ]),
       cpf: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
         Validators.maxLength(11)
-        // Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/),
       ]),
       logradouro: new FormControl('', [
         Validators.required,
@@ -42,14 +41,12 @@ export class FormularioPassageiroComponent {
         Validators.required,
         Validators.minLength(11),
         Validators.maxLength(11)
-        // Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/) // Padrão para telefone (XX) XXXXX-XXXX
       ]),
       linha: new FormControl('', [
         Validators.required,
       ]),
       retorno: new FormControl('', [
         Validators.required,
-        //Validators.pattern(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-9[0-9]$/) // Formato HH:mm
       ])
     });
   }
