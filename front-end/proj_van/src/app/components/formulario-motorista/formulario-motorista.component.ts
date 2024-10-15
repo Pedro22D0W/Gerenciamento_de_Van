@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BotaoPrimarioComponent } from '../botao-primario/botao-primario.component';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { VansAPIService } from '../../services/vans-api.service';
 
 @Component({
   selector: 'app-formulario-motorista', // Alterado para 'app-formulario-motorista'
@@ -16,7 +17,7 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 export class FormularioMotoristaComponent {
   formularioForms: FormGroup;
 
-  constructor() {
+  constructor(private service: VansAPIService) {
     this.formularioForms = new FormGroup({
       nome: new FormControl('', [
         Validators.required,
@@ -40,10 +41,18 @@ export class FormularioMotoristaComponent {
 
   onSubmit() {
     if (this.formularioForms.valid) {
-      console.log(this.formularioForms.value);
-      // Aqui você pode enviar os dados para um serviço ou API, etc.
+      // Faz a requisição para a API
+      this.service.postMotorista(this.formularioForms.value).subscribe({
+        next: (response) => {
+          console.log('Motorista cadastrado com sucesso!', response);
+          this.formularioForms.reset(); // Limpa o formulário após sucesso
+        },
+        error: (err) => {
+          console.error('Erro ao cadastrar motorista:', err);
+        },
+      });
     } else {
-      console.log('Formulário inválido');
+      console.log('Formulário inválido. Por favor, verifique os campos.') ;
     }
   }
 }
