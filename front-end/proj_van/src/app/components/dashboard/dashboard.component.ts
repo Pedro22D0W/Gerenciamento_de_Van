@@ -1,14 +1,40 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { VansAPIService } from '../../services/vans-api.service';
 import { HeaderComponent } from '../header/header.component';
-import { Header2Component } from "../header-2/header-2.component";
+import { Header2Component} from '../header-2/header-2.component'; // Importando o Header2Component
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [HeaderComponent, Header2Component],
+  imports:
+  [HeaderComponent, 
+   Header2Component,
+   CommonModule], // Importando o Header2Component e o CommonModule
+ 
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  @Input() title: string = '';
+export class DashboardComponent implements OnInit {
+  motoristas: any[] = [];
+  passageiros: any[] = [];
+
+  constructor(private service: VansAPIService) {}
+
+  ngOnInit() {
+    this.GetMotoristas();
+    this.GetPassageiros();
+  }
+
+  GetMotoristas() {
+    this.service.GetMotoristas().subscribe(data => {
+      this.motoristas = data;
+    });
+  }
+
+  GetPassageiros() {
+    this.service.GetPassageiros().subscribe(data => {
+      this.passageiros = data;
+    });
+  }
 }
