@@ -89,6 +89,8 @@ label[for="destino"] {
     font-size: 16px;       // Altera o tamanho da fonte
     outline: none;         // Remove o contorno ao focar
     transition: border-color 0.3s; // Anima a mudança da cor da borda
+    margin-bottom: 40px;     // Adiciona espaço de 40px abaixo do select
+
   
     &:focus {
       border-color: $primaryColor; // Altera a cor da borda ao focar
