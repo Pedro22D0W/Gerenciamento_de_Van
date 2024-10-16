@@ -14,7 +14,11 @@
     <input id="logradouro" formControlName="logradouro" type="text" />
 
     <label for="destino">Destino:</label>
-    <input id="destino" formControlName="destino" type="text" />
+    <select id="destino" formControlName="destino">
+      <option value="PUC-CAMPINAS">PUC-CAMPINAS</option>
+      <option value="UNICAMP">UNICAMP</option>
+      <option value="FACAMP">FACAMP</option>
+    </select>
 
     <label for="telefone">Telefone:</label>
     <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" /> 
