@@ -22,7 +22,8 @@ export class FormularioMotoristaComponent {
       nome: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(100)
+        Validators.maxLength(100),
+        Validators.pattern('^[a-zA-ZÀ-ÿ\s]*$')
       ]),
       senha: new FormControl('', [
         Validators.required,
@@ -31,12 +32,14 @@ export class FormularioMotoristaComponent {
       cnh: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
-        Validators.maxLength(11)
+        Validators.maxLength(11),
+        Validators.pattern('^[0-9]*$')
       ]),
       telefone: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
-        Validators.maxLength(11)
+        Validators.maxLength(11),
+        Validators.pattern('^[0-9]*$')
       ]),
       linha: new FormControl('', [
         Validators.required,
