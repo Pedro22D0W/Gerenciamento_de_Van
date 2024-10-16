@@ -37,6 +37,11 @@ export class FormularioPassageiroComponent {
         Validators.minLength(5),
         Validators.maxLength(150)
       ]),
+      destino: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(150)
+      ]),
       telefone: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
