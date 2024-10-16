@@ -1,7 +1,7 @@
 <section class="form-section">
   <form [formGroup]="formularioForms" (ngSubmit)="onSubmit()"> 
     
-    <label for="nome">Nome:</label>
+    <label for="nome">Nome Completo:</label>
     <input id="nome" formControlName="nome" type="text" />
 
     <label for="senha">Senha:</label>
@@ -14,7 +14,11 @@
     <input id="logradouro" formControlName="logradouro" type="text" />
 
     <label for="destino">Destino:</label>
-    <input id="destino" formControlName="destino" type="text" />
+    <select id="destino" formControlName="destino">
+      <option value="PUC-CAMPINAS">PUC-CAMPINAS</option>
+      <option value="UNICAMP">UNICAMP</option>
+      <option value="FACAMP">FACAMP</option>
+    </select>
 
     <label for="telefone">Telefone:</label>
     <input id="telefone" formControlName="telefone" type="tel" placeholder="Digite com o DDD e sem traços" /> 
@@ -26,8 +30,8 @@
     <select id="retorno" formControlName="retorno">
       <option value="11:30:00">11h30 </option>
       <option value="12:00:00">12h</option>
-      <option value="16:00:00">16h</option>
       <option value="17:00:00">17h</option>
+      <option value="18:00:00">18h</option>
     </select>
 
     <btn-primary 
