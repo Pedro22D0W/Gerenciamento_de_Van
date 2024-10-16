@@ -14,6 +14,7 @@ public class Passageiro {
     private String senha;
     private String cpf;
     private String logradouro;
+    private String destino;
     private Time retorno;
     private String telefone;
     private Long linha;
@@ -21,17 +22,16 @@ public class Passageiro {
     public Passageiro() {
     }
 
-
-    public Passageiro(String nome, String senha, String cpf, String logradouro, Time retorno, String telefone, Long linha, Long role) {
+    public Passageiro(String nome, String senha, String cpf, String logradouro, String destino, Time retorno, String telefone, Long linha, Long role) {
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
         this.logradouro = logradouro;
+        this.destino = destino;
         this.retorno = retorno;
         this.telefone = telefone;
         this.linha = linha;
     }
-
 
     public Long getId() {
         return id;
@@ -71,6 +71,14 @@ public class Passageiro {
 
     public String getLogradouro() {
         return logradouro;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public String getDestino() {
+        return destino;
     }
 
     public void setRetorno(Time retorno) {
