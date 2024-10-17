@@ -10,6 +10,7 @@ public class Motorista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private String email;
     private String senha;
     private String cnh;
     private String telefone;
@@ -19,8 +20,9 @@ public class Motorista {
     }
 
 
-    public Motorista(String nome, String senha, String cnh, String telefone, Long linha) {
+    public Motorista(String nome, String email, String senha, String cnh, String telefone, Long linha) {
         this.nome = nome;
+        this.email = email;
         this.senha = senha;
         this.cnh = cnh;
         this.telefone = telefone;
@@ -42,6 +44,14 @@ public class Motorista {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {

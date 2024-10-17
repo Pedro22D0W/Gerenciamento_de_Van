@@ -10,7 +10,8 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
+              <th>Nome Completo</th>
+              <th>E-mail</th>
               <th>CNH</th>
               <th>Telefone</th>
               <th>Linha</th>
@@ -20,6 +21,7 @@
             <tr *ngFor="let motorista of motoristas">
               <td>{{ motorista.id }}</td>
               <td>{{ motorista.nome }}</td>
+              <td>{{ motorista.email }}</td>
               <td>{{ motorista.cnh }}</td>
               <td>{{ motorista.telefone }}</td>
               <td>{{ motorista.linha }}</td>
@@ -34,7 +36,8 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
+              <th>Nome Completo</th>
+              <th>E-mail</th>
               <th>CPF</th>
               <th>Logradouro</th>
               <th>Destino</th>
@@ -47,6 +50,7 @@
             <tr *ngFor="let passageiro of passageiros">
               <td>{{ passageiro.id }}</td>
               <td>{{ passageiro.nome }}</td>
+              <td>{{ passageiro.email }}</td>
               <td>{{ passageiro.cpf }}</td>
               <td>{{ passageiro.logradouro }}</td>
               <td>{{ passageiro.destino }}</td>
