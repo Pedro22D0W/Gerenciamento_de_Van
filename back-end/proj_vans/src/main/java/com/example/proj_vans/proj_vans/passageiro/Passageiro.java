@@ -11,6 +11,7 @@ public class Passageiro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private String email;
     private String senha;
     private String cpf;
     private String logradouro;
@@ -22,8 +23,9 @@ public class Passageiro {
     public Passageiro() {
     }
 
-    public Passageiro(String nome, String senha, String cpf, String logradouro, String destino, Time retorno, String telefone, Long linha, Long role) {
+    public Passageiro(String nome, String senha, String email, String cpf, String logradouro, String destino, Time retorno, String telefone, Long linha, Long role) {
         this.nome = nome;
+        this.email = email;
         this.senha = senha;
         this.cpf = cpf;
         this.logradouro = logradouro;
@@ -47,6 +49,14 @@ public class Passageiro {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEmail() { 
+        return email; 
+    }
+
+    public void setEmail(String email) { 
+        this.email = email; 
     }
 
     public String getSenha() {

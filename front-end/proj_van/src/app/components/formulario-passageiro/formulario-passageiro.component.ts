@@ -21,7 +21,13 @@ export class FormularioPassageiroComponent {
       nome: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(100)
+        Validators.maxLength(100),
+        Validators.pattern('^[a-zA-ZÀ-ÿ ]+$')
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(255),
+        Validators.email
       ]),
       senha: new FormControl('', [
         Validators.required,
