@@ -3,6 +3,7 @@ import { CadastroMotoristaComponent } from "./components/cadastro-motorista/cada
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { CadastroPassageiroComponent } from "./components/cadastro-passageiro/cadastro-passageiro.component";	
 import { DashboardPassageiroComponent } from './components/dashboard-passageiro/dashboard-passageiro.component';
+import { DashboardMotoristaComponent } from './components/dashboard-motorista/dashboard-motorista.component';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,10 @@ export const routes: Routes = [
     {
         path: 'dashboard-passageiro',
         component: DashboardPassageiroComponent,
+    },
+    {
+        path: 'dashboard-motorista',
+        component: DashboardMotoristaComponent,
     }
 
 ];
