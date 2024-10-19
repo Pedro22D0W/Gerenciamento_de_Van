@@ -23,6 +23,6 @@ export class CadastroPassageiroComponent {
   constructor(private router: Router) {}
 
   voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 }

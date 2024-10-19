@@ -28,6 +28,6 @@ export class CadastroMotoristaComponent {
  
 
   voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 }
