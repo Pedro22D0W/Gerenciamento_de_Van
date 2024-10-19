@@ -1,0 +1,62 @@
+@import "../../../styles/variables";
+
+*{
+    font-family: Arial, sans-serif;
+}
+
+.border-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: auto; /* Define a largura máxima */
+    background-color: $backgroundColor; /* Fundo branco */
+    border: 2px solid $backgroundColor; /* Cor da borda */
+    box-shadow: 0 0px 0px $shadowColor; /* Sombra */
+    padding: 30px;
+    border-radius: 3px; /* Borda arredondada (opcional) */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+    text-align: center;
+    height: 100%;
+    min-height: auto; /* Define uma altura mínima, ajuste conforme necessário */
+}
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 40px 70px;
+
+    background-color: $primaryColor; /* Cor de fundo do formulário */
+    width: 30%; /* Ajusta a largura do formulário */
+    margin: 100px auto; /* Adiciona margem superior/inferior e centraliza horizontalmente */
+    padding: 20px; /* Adiciona preenchimento interno */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0px 0px 2px $shadowColor; /* Adiciona uma leve sombra para destacar */
+
+    color: $backgroundColor;
+
+    form{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        font-weight: bold;
+
+        input{
+            background: none;
+            border: none;
+            border-bottom: 1px solid $backgroundColor;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 40px;
+            color: $backgroundColor;
+        }
+    }
+}
+
