@@ -12,6 +12,7 @@
                 <btn-primary 
                     btn-text = "Login"
                     (submit) = "onSubmit()"
+                    [disabled] = "!loginForms.valid"
                 ></btn-primary>
         
             </form>

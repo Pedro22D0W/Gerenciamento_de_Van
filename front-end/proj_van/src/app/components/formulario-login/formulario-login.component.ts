@@ -25,6 +25,7 @@ export class FormularioLoginComponent {
       ]),
       senha: new FormControl('', [
         Validators.required,
+        Validators.minLength(1),
       ])
     });
   }
