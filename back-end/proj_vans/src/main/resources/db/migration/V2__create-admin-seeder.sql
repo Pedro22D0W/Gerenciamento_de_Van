@@ -1,1 +1,1 @@
-insert into admins (user_name,password,role) values ('admin','password',0);
+insert into admins (email,senha,role) values ('admin@admin.com','password','admin');
