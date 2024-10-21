@@ -22,12 +22,16 @@ public class SecurityConfigurations {
     @Bean
     public SecurityFilterChain SecurityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
+                .cors()  // Habilita CORS
+                .and()
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                        .requestMatchers(HttpMethod.POST,"auth").permitAll()
                         .requestMatchers(HttpMethod.POST,"/motorista").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/motorista").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/passageiro").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/passageiro").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
