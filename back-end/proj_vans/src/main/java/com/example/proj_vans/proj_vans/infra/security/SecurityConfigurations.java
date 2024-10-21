@@ -26,7 +26,7 @@ public class SecurityConfigurations {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                        .requestMatchers(HttpMethod.POST,"auth").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/motorista").authenticated()//.hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/motorista").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/passageiro").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

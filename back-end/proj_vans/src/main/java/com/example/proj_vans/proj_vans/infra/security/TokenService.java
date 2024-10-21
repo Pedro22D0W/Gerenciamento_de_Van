@@ -38,6 +38,7 @@ public class TokenService {
                     .withSubject(email)
                     .withExpiresAt(generateExpiration())
                     .sign(algorithm);
+                    System.out.println("email no subject: " + email);
             return token;
         }catch (JWTCreationException exception){
             throw  new RuntimeException("erro ao gerar o token",exception);
@@ -46,11 +47,13 @@ public class TokenService {
     public String validateToken(String token){
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
-            return JWT.require(algorithm)
+            String email = JWT.require(algorithm)
                     .withIssuer("auth")
                     .build()
                     .verify(token)
                     .getSubject();
+                    System.out.println("Email decodificado: " + email);
+                    return email;
         }catch (JWTVerificationException exception){
             return "";
         }
