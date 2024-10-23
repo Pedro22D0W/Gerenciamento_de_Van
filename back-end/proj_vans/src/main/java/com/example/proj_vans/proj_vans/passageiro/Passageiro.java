@@ -1,11 +1,18 @@
 package com.example.proj_vans.proj_vans.passageiro;
 
+import com.example.proj_vans.proj_vans.UserRole;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.sql.Time;
+import java.util.Collection;
+import java.util.List;
 
 @Table(name="passageiros")
 @Entity(name = "passageiros")
-public class Passageiro {
+public class Passageiro implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +26,8 @@ public class Passageiro {
     private Time retorno;
     private String telefone;
     private Long linha;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     public Passageiro() {
     }
@@ -33,6 +42,7 @@ public class Passageiro {
         this.retorno = retorno;
         this.telefone = telefone;
         this.linha = linha;
+        this.role = UserRole.PASSAGEIRO;
     }
 
     public Long getId() {
@@ -113,6 +123,22 @@ public class Passageiro {
 
     public void setLinha(Long linha) {
         this.linha = linha;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (this.role == UserRole.PASSAGEIRO) return List.of(new SimpleGrantedAuthority("ROLE_PASSAGEIRO"));
+        else return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
 }
 

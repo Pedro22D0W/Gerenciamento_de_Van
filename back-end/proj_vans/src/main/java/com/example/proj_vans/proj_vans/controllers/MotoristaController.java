@@ -3,6 +3,7 @@ package com.example.proj_vans.proj_vans.controllers;
 import com.example.proj_vans.proj_vans.motorista.Motorista;
 import com.example.proj_vans.proj_vans.motorista.MotoristaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class MotoristaController {
 
     @PostMapping
     public void StoreMotorista(@RequestBody Motorista data){
+        String senhaCriptografada = new BCryptPasswordEncoder().encode(data.getSenha());
+        data.setSenha(senhaCriptografada);
         repository.save(data);
     }
 

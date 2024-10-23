@@ -1,7 +1,7 @@
 CREATE TABLE admins(
     id SERIAL PRIMARY KEY,
-    user_name TEXT NOT NULL,
-    password TEXT NOT NULL,
-    role INTEGER NOT NULL
+    email TEXT NOT NULL,
+    senha TEXT NOT NULL,
+    role TEXT NOT NULL
  );
 
