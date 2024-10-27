@@ -33,18 +33,21 @@ export class VansAPIService {
   }
 
   StoreMotorista(motorista: any): Observable<any>{
-    return this.client.post("http://localhost:8080/motorista",motorista,{ headers: this.getHeaders() })
+    return this.client.post("http://localhost:8080/motorista/store",motorista,{ headers: this.getHeaders() })
   }
 
   StorePassageiro(passageiro: any): Observable<any>{
-    return this.client.post("http://localhost:8080/passageiro",passageiro,{ headers: this.getHeaders() })
+    return this.client.post("http://localhost:8080/passageiro/store",passageiro,{ headers: this.getHeaders() })
   }
 
   GetMotoristas(): Observable<any>{
-    return this.client.get("http://localhost:8080/motorista",{ headers: this.getHeaders() })
+    return this.client.get("http://localhost:8080/motorista/getAll",{ headers: this.getHeaders() })
   }
 
   GetPassageiros(): Observable<any>{
-    return this.client.get("http://localhost:8080/passageiro",{ headers: this.getHeaders() })
+    return this.client.get("http://localhost:8080/passageiro/getAll",{ headers: this.getHeaders() })
+  }
+  GetPassageirosDaLinha(): Observable<any>{
+    return this.client.get("http://localhost:8080/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
   }
 }
