@@ -1,5 +1,6 @@
 package com.example.proj_vans.proj_vans.controllers;
 
+import com.example.proj_vans.proj_vans.UserRole;
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,15 @@ public class PassageiroController {
     @Autowired
     private PassageiroRepository repository;
 
-    @PostMapping
+    @PostMapping("/store")
     public void StorePassageiro(@RequestBody Passageiro data){
         String senhaCriptografada = new BCryptPasswordEncoder().encode(data.getSenha());
         data.setSenha(senhaCriptografada);
+        data.setRole(UserRole.PASSAGEIRO);
         repository.save(data);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Passageiro> GetPassageiros(){
         return repository.findAll();
     }

@@ -140,5 +140,9 @@ public class Passageiro implements UserDetails {
     public String getUsername() {
         return email;
     }
+
+    public void setRole(UserRole userRole) {
+        this.role = userRole;
+    }
 }
 

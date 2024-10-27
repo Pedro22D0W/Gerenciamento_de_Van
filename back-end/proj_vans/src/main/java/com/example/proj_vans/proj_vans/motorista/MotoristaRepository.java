@@ -5,4 +5,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public interface MotoristaRepository extends JpaRepository<Motorista,Long> {
     UserDetails findByEmail(String email);
+    Motorista findByNome(String nome);
 }
