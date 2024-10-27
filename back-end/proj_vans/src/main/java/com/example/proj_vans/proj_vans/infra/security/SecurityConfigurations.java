@@ -28,10 +28,11 @@ public class SecurityConfigurations {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                        .requestMatchers(HttpMethod.POST,"auth").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/motorista").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/motorista").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/passageiro").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/passageiro").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/motorista/store").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/motorista/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/passageiro/store").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/passageiro/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/motorista/PassageirosDaLinha").hasRole("MOTORISTA")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
