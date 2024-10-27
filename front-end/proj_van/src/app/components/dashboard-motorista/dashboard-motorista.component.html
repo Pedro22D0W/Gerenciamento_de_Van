@@ -1,11 +1,35 @@
 <app-header></app-header>
 <app-header-2-motorista></app-header-2-motorista>
 <div class="dashboard-container">
-    <h1 class="dashboard-title">Dashboard</h1>
-    <div class="dashboard-content">
-        <div *ngFor="let passageiro of passageiros">
-            <span>{{passageiro.nome}}</span>
-
-        </div>
-    </div>
+  <h1 class="dashboard-title">Dashboard Motorista</h1>
+  <div class="dashboard-content">
+    <section class="passageiros">
+      <h2>Lista:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros">
+            <td>{{ passageiro.id }}</td>
+            <td>{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td class="delete-button">
+              <btn-primary
+                btn-text="Excluir"
+              ></btn-primary>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="add-button">
+                <btn-primary
+                    btn-text="Adicionar"
+                ></btn-primary>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
+</div>
