@@ -76,10 +76,18 @@ th {
     color: #333;
 }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
+// tbody tr:hover {
+//     background-color: #f1f1f1;
+// }
+
+// tbody tr:nth-child(even) {
+//     background-color: #f9f9f9;
+// }
+
+.add-button {
+    text-align: center;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+.delete-button {
+    text-align: center;
 }
