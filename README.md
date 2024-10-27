@@ -1,4 +1,3 @@
-# Gerenciamento_de_Van
 # Sistema de Gerenciamento de Vans e Passageiros
 
 Este projeto é um sistema de gerenciamento de vans e passageiros, composto por um front-end Angular, um back-end Spring Boot e um banco de dados PostgreSQL.
