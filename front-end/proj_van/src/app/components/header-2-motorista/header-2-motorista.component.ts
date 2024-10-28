@@ -15,6 +15,7 @@ export class Header2MotoristaComponent {
   logOut(){
     console.log("entrou");
     window.localStorage.clear();
+    sessionStorage.clear();
     this.router.navigate(["/"]);
   }
 

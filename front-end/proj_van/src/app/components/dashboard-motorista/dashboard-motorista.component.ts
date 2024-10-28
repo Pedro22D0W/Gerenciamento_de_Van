@@ -30,8 +30,9 @@ export class DashboardMotoristaComponent {
       this.getPassageiros();
     }
     else{
-      this.passageiros1 = window.localStorage["passageiros1"]
-      this.passageiros2 = window.localStorage["passageiros2"]
+      this.passageiros1 = JSON.parse(window.localStorage["passageiros1"])
+      this.passageiros2 = JSON.parse(window.localStorage["passageiros2"]) 
+      console.log(this.passageiros1)
     }
 
   }
