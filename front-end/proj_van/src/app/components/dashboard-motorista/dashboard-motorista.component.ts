@@ -25,9 +25,15 @@ export class DashboardMotoristaComponent {
   constructor(private service: VansAPIService) {}
 
   ngOnInit() {
-    this.getPassageiros();
+    var localData = window.localStorage["passageiros1"];
+    if(!localData || localData==null){
+      this.getPassageiros();
+    }
+    else{
+      this.passageiros1 = window.localStorage["passageiros1"]
+      this.passageiros2 = window.localStorage["passageiros2"]
+    }
 
-    
   }
 
   getPassageiros() {
@@ -39,6 +45,9 @@ export class DashboardMotoristaComponent {
   removerPassageiroLista1(passageiro: any): void {
     this.passageiros2.push(passageiro); // Adiciona ao array local
     this.passageiros1 = this.passageiros1.filter(p => p.id !== passageiro.id);
+
+    window.localStorage["passageiros1"] = JSON.stringify(this.passageiros1);
+    window.localStorage["passageiros2"] = JSON.stringify(this.passageiros2);
     
  
 
@@ -47,7 +56,9 @@ export class DashboardMotoristaComponent {
     this.passageiros1.push(passageiro); // Adiciona ao array local
     this.passageiros2 = this.passageiros2.filter(p => p.id !== passageiro.id);
 
-    
+    window.localStorage["passageiros1"] = JSON.stringify(this.passageiros1);
+    window.localStorage["passageiros2"] = JSON.stringify(this.passageiros2);
+
   }
 
 
