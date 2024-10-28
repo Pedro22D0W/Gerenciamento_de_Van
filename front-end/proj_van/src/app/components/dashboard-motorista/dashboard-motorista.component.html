@@ -4,29 +4,35 @@
   <h1 class="dashboard-title">Dashboard Motorista</h1>
   <div class="dashboard-content">
     <section class="passageiros">
-      <h2>Lista:</h2>
+      <h2>Passageiros que pegarão o transporte:</h2>
       <table>
         <thead>
           <tr>
             <!-- adicionar o que for necessário -->
           </tr>
         <tbody>
-          <tr *ngFor="let passageiro of passageiros">
-            <td>{{ passageiro.id }}</td>
+          <tr *ngFor="let passageiro of passageiros1">
             <td>{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
-            <td class="delete-button">
-              <btn-primary
-                btn-text="Remover"
-              ></btn-primary>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
             </td>
           </tr>
+        </tbody>
+      </table>
+      <h2>Passageiros que não pegarão o transporte:</h2>
+      <table>
+        <thead>
           <tr>
-            <td colspan="4" class="add-button">
-                <btn-primary
-                    btn-text="Adicionar"
-                ></btn-primary>
-            </td>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros2">
+            <td>{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+                <td >
+                    <button class="delete-button" (click)="removerPassageiroLista2(passageiro)">Remover</button>
+                </td>
           </tr>
         </tbody>
       </table>
