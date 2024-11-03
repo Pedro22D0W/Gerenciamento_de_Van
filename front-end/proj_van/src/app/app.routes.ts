@@ -5,6 +5,7 @@ import { CadastroPassageiroComponent } from "./components/cadastro-passageiro/ca
 import { HomeComponent } from './components/home/home.component';
 import { DashboardPassageiroComponent } from './components/dashboard-passageiro/dashboard-passageiro.component';
 import { DashboardMotoristaComponent } from './components/dashboard-motorista/dashboard-motorista.component';
+import { FinanceiroAdminComponent } from './components/financeiro-admin/financeiro-admin.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,10 @@ export const routes: Routes = [
     {
         path: 'dashboard-motorista',
         component: DashboardMotoristaComponent,
+    },
+    {
+        path: 'financeiro',
+        component: FinanceiroAdminComponent,
     }
 
 ];
