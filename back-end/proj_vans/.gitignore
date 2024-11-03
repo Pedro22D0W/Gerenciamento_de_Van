@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 back-end/uploads/*
+!back-end/uploads/.gitkeep
 
 ### STS ###
 .apt_generated
