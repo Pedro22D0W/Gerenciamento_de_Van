@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header-2-passageiro',
+  selector: 'app-header-financeiro-passageiro',
   standalone: true,
   imports: [],
-  templateUrl: './header-2-passageiro.component.html',
-  styleUrl: './header-2-passageiro.component.scss'
+  templateUrl: './header-financeiro-passageiro.component.html',
+  styleUrl: './header-financeiro-passageiro.component.scss'
 })
-export class Header2PassageiroComponent {
-
+export class HeaderFinanceiroPassageiroComponent {
   constructor(private router: Router) {}
 
   logOut(){
@@ -18,9 +17,4 @@ export class Header2PassageiroComponent {
     sessionStorage.clear();
     this.router.navigate(["/"]);
   }
-
-  FinanceiroPassageiro() {
-    this.router.navigate(['/financeiro-passageiro']);
-  }
-
 }
