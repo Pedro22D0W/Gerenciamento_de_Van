@@ -7,6 +7,7 @@ import { DashboardPassageiroComponent } from './components/dashboard-passageiro/
 import { DashboardMotoristaComponent } from './components/dashboard-motorista/dashboard-motorista.component';
 import { FinanceiroPassageiroComponent } from './components/financeiro-passageiro/financeiro-passageiro.component';
 import { FinanceiroAdminComponent } from './components/financeiro-admin/financeiro-admin.component';
+import { FinanceiroAdminPassageiroComponent } from './components/financeiro-admin-passageiro/financeiro-admin-passageiro.component';
 
 
 export const routes: Routes = [
@@ -44,6 +45,12 @@ export const routes: Routes = [
 
         path: 'financeiro',
         component: FinanceiroAdminComponent,
+
+    },
+    {
+
+        path: 'financeiro-admin-passageiro',
+        component: FinanceiroAdminPassageiroComponent,
 
     }
 
