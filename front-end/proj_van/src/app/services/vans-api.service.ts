@@ -40,6 +40,10 @@ export class VansAPIService {
     return this.client.post("http://localhost:8080/passageiro/store",passageiro,{ headers: this.getHeaders() })
   }
 
+  StoreBoleto(boleto: any): Observable<any>{
+    return this.client.post("http://localhost:8080/boleto/store",boleto,{ headers: this.getHeaders() })
+  }
+
   GetMotoristas(): Observable<any>{
     return this.client.get("http://localhost:8080/motorista/getAll",{ headers: this.getHeaders() })
   }
@@ -47,6 +51,11 @@ export class VansAPIService {
   GetPassageiros(): Observable<any>{
     return this.client.get("http://localhost:8080/passageiro/getAll",{ headers: this.getHeaders() })
   }
+
+  GetBoleto(): Observable<any>{
+    return this.client.get("http://localhost:8080/boleto/getAll",{ headers: this.getHeaders() })
+  }
+
   GetPassageirosDaLinha(): Observable<any>{
     return this.client.get("http://localhost:8080/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
   }

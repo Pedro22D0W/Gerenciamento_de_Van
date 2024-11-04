@@ -8,6 +8,7 @@ import { DashboardMotoristaComponent } from './components/dashboard-motorista/da
 import { FinanceiroPassageiroComponent } from './components/financeiro-passageiro/financeiro-passageiro.component';
 import { FinanceiroAdminComponent } from './components/financeiro-admin/financeiro-admin.component';
 import { FinanceiroAdminPassageiroComponent } from './components/financeiro-admin-passageiro/financeiro-admin-passageiro.component';
+import { CadastroBoletoComponent } from './components/cadastro-boleto/cadastro-boleto.component';
 
 
 export const routes: Routes = [
@@ -51,6 +52,12 @@ export const routes: Routes = [
 
         path: 'financeiro-admin-passageiro',
         component: FinanceiroAdminPassageiroComponent,
+
+    },
+    {
+
+        path: 'cadastro-boleto',
+        component: CadastroBoletoComponent,
 
     }
 

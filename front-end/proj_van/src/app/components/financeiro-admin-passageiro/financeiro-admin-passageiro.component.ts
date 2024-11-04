@@ -11,7 +11,7 @@ import { HeaderFinanceiroPassageiroComponent } from '../header-financeiro-passag
 })
 export class FinanceiroAdminPassageiroComponent {
 
-  upload() {
+  UpLoad() {
     //IMPLEMENTAR LOGICA DE UPLOAD DO BOLETO ------------
     console.log("Boleto");
   }
