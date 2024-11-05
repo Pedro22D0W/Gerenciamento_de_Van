@@ -1,19 +1,47 @@
-import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { HeaderFinanceiroPassageiroComponent } from '../header-financeiro-passageiro/header-financeiro-passageiro.component';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { VansAPIService } from '../../services/vans-api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-financeiro-admin-passageiro',
   standalone: true,
-  imports: [HeaderComponent, HeaderFinanceiroPassageiroComponent],
+  imports: [HeaderComponent, HeaderFinanceiroPassageiroComponent, CommonModule],
   templateUrl: './financeiro-admin-passageiro.component.html',
-  styleUrl: './financeiro-admin-passageiro.component.scss'
+  styleUrls: ['./financeiro-admin-passageiro.component.scss'] // Corrigido de styleUrl para styleUrls
 })
-export class FinanceiroAdminPassageiroComponent {
+export class FinanceiroAdminPassageiroComponent implements OnInit {
+  
+  boletos: any[] = [];
+  passageiroId: string = ''; // Inicialização com valor padrão
 
-  UpLoad() {
-    //IMPLEMENTAR LOGICA DE UPLOAD DO BOLETO ------------
-    console.log("Boleto");
+  constructor(
+    private route: ActivatedRoute,
+    private boletoService: VansAPIService,
+  ) {}
+
+  ngOnInit(): void {
+    this.passageiroId = this.route.snapshot.paramMap.get('id') || ''; // Atribuição com valor padrão
+    if (this.passageiroId) {
+      this.loadBoletos();
+    } else {
+      console.error('Passageiro ID não encontrado na URL.');
+    }
   }
 
+  loadBoletos(): void {
+    this.boletoService.getBoletosByPassageiro(this.passageiroId).subscribe((data) => {
+      this.boletos = data;
+    });
+  }
+
+  editarBoleto(boletoId: string): void {
+    console.log('Editando boleto com ID:', boletoId);
+  }
+
+  UpLoad() {
+    console.log("Boleto");
+  }
 }

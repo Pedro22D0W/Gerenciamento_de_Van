@@ -10,7 +10,6 @@ import { FinanceiroAdminComponent } from './components/financeiro-admin/financei
 import { FinanceiroAdminPassageiroComponent } from './components/financeiro-admin-passageiro/financeiro-admin-passageiro.component';
 import { CadastroBoletoComponent } from './components/cadastro-boleto/cadastro-boleto.component';
 
-
 export const routes: Routes = [
     {
         path: '',
@@ -50,7 +49,7 @@ export const routes: Routes = [
     },
     {
 
-        path: 'financeiro-admin-passageiro',
+        path: 'financeiro-admin-passageiro/:id',
         component: FinanceiroAdminPassageiroComponent,
 
     },

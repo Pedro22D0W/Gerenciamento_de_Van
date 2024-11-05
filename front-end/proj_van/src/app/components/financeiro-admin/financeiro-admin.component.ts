@@ -4,11 +4,12 @@ import { HeaderComponent } from '../header/header.component';
 import { Header2FinanceiroComponent } from '../header-2-financeiro/header-2-financeiro.component';
 import { VansAPIService } from '../../services/vans-api.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-financeiro-admin',
   standalone: true,
-  imports: [HeaderComponent, Header2FinanceiroComponent, CommonModule],
+  imports: [HeaderComponent, Header2FinanceiroComponent, CommonModule, RouterModule],
   templateUrl: './financeiro-admin.component.html',
   styleUrl: './financeiro-admin.component.scss'
 })
