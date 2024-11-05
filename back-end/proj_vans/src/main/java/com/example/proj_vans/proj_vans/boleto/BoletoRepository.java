@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface BoletoRepository extends JpaRepository<Boleto, Long> {
 
     // Busca boletos por status
-    List<Boleto> findByStatus(Boleto.Status status);
+    List<Boleto> findByStatus(String status);
 
     // Busca boletos por passageiro
     List<Boleto> findByPassageiroId(Long passageiroId);
@@ -20,5 +20,5 @@ public interface BoletoRepository extends JpaRepository<Boleto, Long> {
     List<Boleto> findByDataVencimento(java.time.LocalDate dataVencimento);
 
     // Exemplo de um método customizado para encontrar boletos em atraso
-    List<Boleto> findByStatusAndDataVencimentoBefore(Boleto.Status status, java.time.LocalDate data);
+    List<Boleto> findByStatusAndDataVencimentoBefore(String status, java.time.LocalDate data);
 }

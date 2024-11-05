@@ -1,7 +1,9 @@
 package com.example.proj_vans.proj_vans.controllers;
 
 import com.example.proj_vans.proj_vans.FileStorageProperties;
+import com.example.proj_vans.proj_vans.services.UploadService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +24,8 @@ import java.nio.file.Paths;
 @RequestMapping("/api/files")
 public class FileStorageController {
 
+    @Autowired
+    UploadService uploadService;
     private final Path fileStorageLocation;
 
     public FileStorageController(FileStorageProperties fileStorageProperties){
@@ -30,20 +34,9 @@ public class FileStorageController {
     }
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file")MultipartFile file){
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileDownloadUri = uploadService.uploadFile(file);
+            return  ResponseEntity.ok(fileDownloadUri);
 
-        try {
-            Path targetLocation = fileStorageLocation.resolve(fileName);
-            file.transferTo(targetLocation);
-
-            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path("/api/files/download/")
-                    .path(fileName)
-                    .toUriString();
-            return  ResponseEntity.ok("upload completo" + fileDownloadUri);
-        } catch (IOException e) {
-            return ResponseEntity.badRequest().build();
-        }
     }
 
     @GetMapping("/download/{fileName:.+}")

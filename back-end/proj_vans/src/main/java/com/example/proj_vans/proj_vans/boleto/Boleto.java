@@ -1,5 +1,6 @@
 package com.example.proj_vans.proj_vans.boleto;
 
+import com.example.proj_vans.proj_vans.BoletoDTO;
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import jakarta.persistence.*;
 
@@ -19,8 +20,7 @@ public class Boleto {
     private Passageiro passageiro;
 
     @Column(nullable = false, length = 20)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private String status;
 
     @Column(name = "data_vencimento", nullable = false)
     private LocalDate dataVencimento;
@@ -28,21 +28,31 @@ public class Boleto {
     @Column(nullable = false)
     private BigDecimal valor;
 
+    private String link;
+
+
     // Enum para representar o status do boleto
-    public enum Status {
-        PAGO, PENDENTE, ATRASADO
-    }
+
 
     // Construtor padrão
     public Boleto() {
     }
 
     // Construtor com todos os atributos, exceto o ID que é gerado automaticamente
-    public Boleto(Passageiro passageiro, Status status, LocalDate dataVencimento, BigDecimal valor) {
+    public Boleto(Passageiro passageiro, String status, LocalDate dataVencimento, BigDecimal valor) {
         this.passageiro = passageiro;
         this.status = status;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
+    }
+
+    // Construtor com o passageiro que vai relacionar, os dados e o link
+    public Boleto(Passageiro passageiro, BoletoDTO boletoDTO, String link) {
+        this.passageiro = passageiro;
+        this.status = boletoDTO.status().toUpperCase();
+        this.dataVencimento = boletoDTO.dataVencimento();
+        this.valor = boletoDTO.valor();
+        this.link = link;
     }
 
     // Getters e Setters
@@ -58,11 +68,11 @@ public class Boleto {
         this.passageiro = passageiro;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -81,4 +91,14 @@ public class Boleto {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }
+
