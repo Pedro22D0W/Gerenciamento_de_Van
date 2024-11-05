@@ -27,6 +27,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -66,6 +67,23 @@ public class BoletoController {
 
         return  ResponseEntity.ok(fileDownloadUri);
 
+    }
+    @PutMapping("/{id}/updateStatus")
+    public ResponseEntity<String> updateStatus(@PathVariable Long id) {
+
+        Optional<Boleto> optionalBoleto = boletoRepository.findById(id);
+        Boleto boleto = (Boleto) ((Optional<?>) optionalBoleto).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "Passageiro não encontrado")
+        );
+        if (Objects.equals(boleto.getStatus(), "PENDENTE")){
+            boleto.setStatus("PAGO");
+        }
+        else{
+            boleto.setStatus("PENDENTE");
+        }
+        System.out.println("novo status: " + boleto.getStatus());
+        boletoRepository.save(boleto);
+        return ResponseEntity.ok("status modificado"); // Retorna 204 No Content
     }
 
     // Endpoint para obter todos os boletos
