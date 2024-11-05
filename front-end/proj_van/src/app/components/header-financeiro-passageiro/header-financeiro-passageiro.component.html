@@ -1,34 +1,28 @@
 <header class="app-header">
     <div class="logo-container">
-        <span class="panel-text">Painel Usuário</span> <!-- Painel Admin -->
+        <span class="panel-text">Área Financeira</span> <!-- Painel Admin -->
     </div>
 
     <div class="nav-container">
         <!-- Botão de Motorista com dropdown -->
-        <div class="dropdown">
+        <!-- <div class="dropdown">
             <button class="nav-btn" id="motorista-btn">Motorista</button>
             <div class="dropdown-content" id="motorista-dropdown">
                 <a href="cadastro-motorista">Cadastrar Motorista</a>
             </div>
-        </div>
+        </div> -->
 
         <!-- Botão de Passageiro com dropdown -->
-        <div class="dropdown">
+        <!-- <div class="dropdown">
             <button class="nav-btn" id="passageiro-btn">Passageiro</button>
             <div class="dropdown-content" id="passageiro-dropdown">
                 <a href="cadastro-passageiro">Cadastrar Passageiro</a>
             </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="financeiro">
-                <button class="nav-btn">Financeiro</button>
-            </a>
-        </div>
+        </div> -->
     </div>
 
     <div class="profile-container">
-        <span class="welcome-text">Bem-vindo, Usuário</span> 
-        <button class="logout-btn" (click)="logOut()" >Logout</button>
+        <span class="welcome-text">Histórico de pagamentos do passageiro</span> 
+        <button class="logout-btn" (click)="logOut()">Logout</button>
     </div>
 </header>

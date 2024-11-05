@@ -8,6 +8,8 @@ import { LoginResponse } from '../types/login-response-type';
 })
 export class VansAPIService {
 
+  private apiUrl = 'https://seu-servidor.com/api/boletos';
+
   constructor(private client: HttpClient) { }
 
   getToken() {
@@ -40,6 +42,10 @@ export class VansAPIService {
     return this.client.post("http://localhost:8080/passageiro/store",passageiro,{ headers: this.getHeaders() })
   }
 
+  StoreBoleto(boleto: any): Observable<any>{
+    return this.client.post("http://localhost:8080/boleto/store",boleto,{ headers: this.getHeaders() })
+  }
+
   GetMotoristas(): Observable<any>{
     return this.client.get("http://localhost:8080/motorista/getAll",{ headers: this.getHeaders() })
   }
@@ -47,7 +53,21 @@ export class VansAPIService {
   GetPassageiros(): Observable<any>{
     return this.client.get("http://localhost:8080/passageiro/getAll",{ headers: this.getHeaders() })
   }
+
+  GetBoleto(): Observable<any>{
+    return this.client.get("http://localhost:8080/boleto/getAll",{ headers: this.getHeaders() })
+  }
+
   GetPassageirosDaLinha(): Observable<any>{
     return this.client.get("http://localhost:8080/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
+  }
+
+  // Método para buscar boletos de um passageiro específico
+  GetBoletosByPassageiroId(passageiroId: number): Observable<any> {
+    return this.client.get(`http://localhost:8080/boleto/byPassageiro/${passageiroId}`, { headers: this.getHeaders() });
+  }
+
+  getBoletosByPassageiro(passageiroId: string): Observable<any[]> {
+    return this.client.get<any[]>(`${this.apiUrl}?passageiroId=${passageiroId}`);
   }
 }

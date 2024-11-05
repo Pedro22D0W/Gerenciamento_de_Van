@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-header-2-financeiro></app-header-2-financeiro>
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Financeiro</h1>
+    <div class="dashboard-content">
+        <section class="passageiros">
+            <h2>Passageiros:</h2>
+            <table>
+                <thead>
+                    <!-- Colocar o que quiser -->
+                </thead>
+                <tbody>
+                    <tr *ngFor="let passageiro of passageiros">
+                        <td>{{ passageiro.nome }}</td>
+                        <td>
+                            <a [routerLink]="['/financeiro-admin-passageiro', passageiro.id]">
+                              <button class="view-button">Visualizar</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="botao-secundario">
+            <a href="dashboard">
+                <button class="btn-secundario">Voltar</button>
+            </a>
+        </section>
+    </div>
+</div>
