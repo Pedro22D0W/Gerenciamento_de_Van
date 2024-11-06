@@ -1,0 +1,1 @@
+ALTER TABLE boletos ADD COLUMN mes TEXT;

@@ -4,11 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VansAPIService } from '../../services/vans-api.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-financeiro-admin-passageiro',
   standalone: true,
-  imports: [HeaderComponent, HeaderFinanceiroPassageiroComponent, CommonModule],
+  imports: [HeaderComponent, HeaderFinanceiroPassageiroComponent, RouterModule, CommonModule],
   templateUrl: './financeiro-admin-passageiro.component.html',
   styleUrls: ['./financeiro-admin-passageiro.component.scss'] // Corrigido de styleUrl para styleUrls
 })

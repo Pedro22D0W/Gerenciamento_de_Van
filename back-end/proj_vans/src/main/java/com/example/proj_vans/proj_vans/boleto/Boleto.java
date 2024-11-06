@@ -30,6 +30,8 @@ public class Boleto {
 
     private String link;
 
+    private String mes;
+
 
     // Enum para representar o status do boleto
 
@@ -99,6 +101,14 @@ public class Boleto {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
     }
 }
 

@@ -55,7 +55,7 @@ export const routes: Routes = [
     },
     {
 
-        path: 'cadastro-boleto',
+        path: 'cadastro-boleto/:id',
         component: CadastroBoletoComponent,
 
     }
