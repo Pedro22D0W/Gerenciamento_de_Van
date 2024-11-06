@@ -83,7 +83,7 @@ public class BoletoController {
         }
         System.out.println("novo status: " + boleto.getStatus());
         boletoRepository.save(boleto);
-        return ResponseEntity.ok("status modificado"); // Retorna 204 No Content
+        return ResponseEntity.noContent().build();
     }
 
     // Endpoint para obter todos os boletos

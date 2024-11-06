@@ -25,11 +25,15 @@
         <option value="">Selecione um status</option>
         <option value="pago">Pago</option>
         <option value="pendente">Pendente</option>
-        <option value="atrasado">Atrasado</option>
       </select>
   
       <label for="valor">Valor:</label>
       <input id="valor" formControlName="valor" type="number" placeholder="R$ 0,00" step="0.01" />
+
+      
+      <label for="file">Boleto:</label>
+      <input id="file" formControlName="file" type="file"/>
+  
   
       <btn-primary 
         btn-text="Cadastrar Boleto"

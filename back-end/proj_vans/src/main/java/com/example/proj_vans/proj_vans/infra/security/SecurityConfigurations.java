@@ -33,6 +33,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.POST,"/passageiro/store").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/passageiro/getAll").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/motorista/PassageirosDaLinha").hasRole("MOTORISTA")
+                        .requestMatchers(HttpMethod.PUT,"/boleto/{id}/updateStatus").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

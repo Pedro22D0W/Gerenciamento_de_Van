@@ -32,13 +32,17 @@ export class FinanceiroAdminPassageiroComponent implements OnInit {
   }
 
   loadBoletos(): void {
-    this.boletoService.getBoletosByPassageiro(this.passageiroId).subscribe((data) => {
+    this.boletoService.GetBoletosByPassageiroId(this.passageiroId).subscribe((data) => {
       this.boletos = data;
+      console.log(data)
     });
   }
 
   editarBoleto(boletoId: string): void {
-    console.log('Editando boleto com ID:', boletoId);
+   this.boletoService.updateStatus(boletoId).subscribe({
+    next: () => console.log('Status atualizado com sucesso!'),
+    error: (err) => console.error('Erro ao atualizar o status:', err),
+  });
   }
 
   UpLoad() {
