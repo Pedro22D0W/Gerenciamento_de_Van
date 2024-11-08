@@ -37,7 +37,7 @@ public class PassageiroController {
         return repository.findAll();
     }
     @GetMapping("/boletos-passageiro")
-    public List<Boleto> getBoletos(HttpServletRequest request) {
+    public List<Boleto> getBoletosPassageiro(HttpServletRequest request) {
 
             //recupera email do token
             var authHeader = request.getHeader("Authorization");
@@ -57,6 +57,13 @@ public class PassageiroController {
                 }
             }
             System.out.println("id do passageiro:"+ passageiroId);
+        List<Boleto> boletos = boletoRepository.findByPassageiroId(passageiroId);
+
+        return boletos;
+    }
+    @GetMapping("/boletos/{passageiroId}")
+    public List<Boleto> getBoletos(@PathVariable Long passageiroId) {
+   
         List<Boleto> boletos = boletoRepository.findByPassageiroId(passageiroId);
 
         return boletos;
