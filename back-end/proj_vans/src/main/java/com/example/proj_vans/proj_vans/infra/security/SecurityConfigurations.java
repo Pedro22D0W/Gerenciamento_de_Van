@@ -34,6 +34,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.GET,"/passageiro/getAll").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/motorista/PassageirosDaLinha").hasRole("MOTORISTA")
                         .requestMatchers(HttpMethod.PUT,"/boleto/{id}/updateStatus").permitAll()
+                        .requestMatchers(HttpMethod.PUT,"/passageiro/boletos-passageiro").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

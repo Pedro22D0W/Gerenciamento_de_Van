@@ -60,12 +60,17 @@ export class VansAPIService {
   GetPassageirosDaLinha(): Observable<any>{
     return this.client.get("http://localhost:8080/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
   }
-
   // Método para buscar boletos de um passageiro específico
   GetBoletosByPassageiroId(passageiroId: string): Observable<any> {
     return this.client.get(`http://localhost:8080/passageiro/boletos/${passageiroId}`, { headers: this.getHeaders() });
   }
-
+  GetBoletosPassageiro(): Observable<any> {
+    return this.client.get('http://localhost:8080/passageiro/boletos-passageiro', { headers: this.getHeaders() });
+  }
+  DownloadBoleto(boletoURL: string): Observable<any> {
+    console.log(boletoURL)
+    return this.client.get(boletoURL, { headers: this.getHeaders(), responseType: 'blob' });
+  }
   updateStatus(boletoId: string): Observable<any> {
    return this.client.put(`http://localhost:8080/boleto/${boletoId}/updateStatus`, { headers: this.getHeaders() });
   } 

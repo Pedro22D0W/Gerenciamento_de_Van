@@ -7,7 +7,6 @@
             <section class="passageiros">
                 <table class="table">
                   <thead>
-
                     <tr>
                       <th>Boletos</th>
                       <th>Status de Pagamento</th>
@@ -16,101 +15,24 @@
                       <th>Baixar Boleto</th>
                     </tr>
                   </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Concluído</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Pendente</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Pendente</td>
-                            <td>xx / xx / xxxx</td>
-                            <td>R$ 500,00</td>
-                            <td><button (click)="download()" class="botao">Download</button></td>
-                        </tr>
-
-                    </tbody>
+                  <tbody>
+                    <tr *ngFor="let boleto of boletos">
+                      <td>{{ boleto.id }}</td>
+                      <td>{{ boleto.status }}</td>
+                      <td>{{ boleto.dataVencimento | date: 'dd/MM/yyyy' }}</td>
+                      <td>{{ boleto.valor | currency: 'BRL' }}</td>
+                      <td>
+                        <button (click)="download(boleto.link)" class="botao">Baixar</button>
+                      </td>
+                    </tr>             
+                  </tbody>
                 </table>
-            </section>
-            <section class="botao-secundario">
-                <br><br>
-                <button (click)="voltar()" class="btn-secundario">Voltar</button>
-            </section>
+              </section>
+              <section class="botao-secundario">
+                <a href="/dashboard-passageiro">
+                  <button class="btn-secundario">Voltar</button>
+                </a>
+              </section>
         </div>
     </div>
 </main>
