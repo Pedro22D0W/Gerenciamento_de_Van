@@ -13,8 +13,8 @@
                     <tr *ngFor="let passageiro of passageiros">
                         <td>{{ passageiro.nome }}</td>
                         <td>
-                            <a>
-                                <button class="view-button">Visualizar</button>
+                            <a [routerLink]="['/financeiro-admin-passageiro', passageiro.id]">
+                              <button class="view-button">Visualizar</button>
                             </a>
                         </td>
                     </tr>
