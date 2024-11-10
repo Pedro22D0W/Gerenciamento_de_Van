@@ -4,6 +4,8 @@ import com.example.proj_vans.proj_vans.UserRole;
 import com.example.proj_vans.proj_vans.boleto.Boleto;
 import com.example.proj_vans.proj_vans.boleto.BoletoRepository;
 import com.example.proj_vans.proj_vans.infra.security.TokenService;
+import com.example.proj_vans.proj_vans.motorista.Motorista;
+import com.example.proj_vans.proj_vans.motorista.MotoristaRepository;
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,6 +26,8 @@ public class PassageiroController {
     private BoletoRepository boletoRepository;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private MotoristaRepository motoristaRepository;
 
     @PostMapping("/store")
     public void StorePassageiro(@RequestBody Passageiro data){
@@ -68,4 +73,41 @@ public class PassageiroController {
 
         return boletos;
     }
+    @GetMapping("/get-my-motorista")
+    public List<Motorista> GetMyMotorista(HttpServletRequest request){
+
+        var authHeader = request.getHeader("Authorization");
+        String token = authHeader.replace(("Bearer "),"");
+        String email = tokenService.validateToken(token);
+        Passageiro passageiro = this.findPassageiro(email);
+
+
+        return this.GerarListaDeMotoristas(passageiro);
+
+    }
+
+    public List<Motorista> GerarListaDeMotoristas(Passageiro passageiro){
+        List<Motorista> AllMotoristas = motoristaRepository.findAll();
+        List<Motorista> MotoristasDaLinha = new ArrayList<>();
+        for (Motorista motorista:AllMotoristas
+        ) {
+            if (passageiro.getLinha().equals(motorista.getLinha())){
+                MotoristasDaLinha.add(motorista);
+            }
+
+        }
+        return MotoristasDaLinha;
+    }
+    public Passageiro findPassageiro(String email){
+        List<Passageiro> Allpassageiros = repository.findAll();
+
+        for (Passageiro passageiro:Allpassageiros
+        ) {
+            if (passageiro.getEmail().equals(email)){
+                return passageiro;
+            }
+        }
+        return null;
+    }
+
 }

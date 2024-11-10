@@ -36,6 +36,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.PUT,"/boleto/{id}/updateStatus").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos-passageiro").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos/{passageiroId}").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/passageiro//get-my-motorista").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
