@@ -69,17 +69,35 @@ th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
+    text-align: center;
 }
 
 th {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color:#045ce4;
+    color: white;
 }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
+// tbody tr:hover {
+//     background-color: #f1f1f1;
+// }
+
+// tbody tr:nth-child(even) {
+//     background-color: #f9f9f9;
+// }
+
+.add-button {
+    text-align: center;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+.delete-button {
+    
+    background-color: $backgroundColor; /* Cor de fundo do botão */
+    color: $primaryColor; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 20px; /* Adiciona preenchimento interno */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    font-weight: bold; /* Deixa o texto em negrito */
+    transition: background-color 0.2s; /* Adiciona uma transição suave de cor de fundo */
+
 }

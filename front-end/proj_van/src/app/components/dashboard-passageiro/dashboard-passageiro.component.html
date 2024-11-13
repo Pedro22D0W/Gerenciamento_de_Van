@@ -1,8 +1,31 @@
 <app-header></app-header>
 <app-header-2-passageiro></app-header-2-passageiro>
+
 <div class="dashboard-container">
-    <h1 class="dashboard-title">Dashboard</h1>
-    <div class="dashboard-content">
-        <!-- Adicionar coisas aqui -->
-    </div>
+  <h1 class="dashboard-title">Dashboard Passageiro</h1>
+  <div class="dashboard-content">
+    <section class="motoristas">
+        <div *ngIf="motorista && motorista.length > 0">
+            <h2>Motorista Responsável:</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Contato</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of motorista">
+                  <td>{{ item.nome }}</td>
+                  <td>{{ item.telefone }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div *ngIf="!motorista || motorista.length === 0">
+            <p>Nenhum motorista encontrado.</p>
+          </div>
+    </section>
   </div>
+</div>
