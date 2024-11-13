@@ -22,13 +22,13 @@
                 <td>{{ boleto.dataVencimento | date: 'dd/MM/yyyy' }}</td>
                 <td>{{ boleto.valor | currency: 'BRL' }}</td>
                 <td>
-                  <button (click)="editarBoleto(boleto.id)" class="botao">Editar</button>
+                  <button (click)="editarBoleto(boleto.id)" class="view-button">Editar</button>
                 </td>
               </tr>
               <tr>
                 <td class="button" colspan="5" style="text-align: center;">
                     <a [routerLink]="['/cadastro-boleto', passageiroId]">
-                        <button class="view-button">Adicionar</button>
+                        <button class="btn-secundario">Adicionar</button>
                     </a>
                 </td>
             </tr>
