@@ -14,6 +14,20 @@
 }
 
 .logo-container img {
-    width: 110px;
-    height: 110px;
+    width: 100%; /* A imagem ocupará a largura disponível do container */
+    max-width: 110px; /* Define um limite máximo para evitar exageros */
+    height: auto; /* Mantém a proporção da imagem */
 }
+
+@media (max-width: 768px) {
+    .logo-container img {
+        max-width: 80px; /* Reduz o tamanho máximo da imagem para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container img {
+        max-width: 60px; /* Ajusta ainda mais para smartphones */
+    }
+}
+

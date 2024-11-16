@@ -3,50 +3,36 @@
 main {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    padding: 20px; /* Adicionando um pouco de espaçamento interno */
-    max-width: 1200px; /* Largura máxima do contêiner */
-    width: 100%; /* Ocupar 100% da largura do contêiner até o máximo */
-    min-height: 100vh; /* Ocupar a altura total da tela */
-    margin: 0 auto; /* Centraliza o contêiner */
-    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+    align-items: center; /* Centraliza todo o conteúdo no eixo horizontal */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o contêiner no layout */
+    width: 100%;
 }
 
+
 .dashboard-title {
-    font-size: 26px; /* Aumentando o tamanho da fonte do título */
-    margin: 0; /* Remove margens padrão */
-    padding-bottom: 10px; /* Espaçamento entre o título e o conteúdo */
-    color: $primaryColor; /* Cor do texto */
-    align-self: flex-start; /* Isso alinha o título à esquerda */
-    padding-left: 20px; /* Espaçamento à esquerda para distanciar da borda */
+    font-size: 26px;
+    margin: 0;
+    padding-bottom: 10px;
+    color: $primaryColor;
+    align-self: flex-start;
+    padding-left: 20px;
 }
 
 .dashboard-content {
-    width: 100%; /* Ocupar 100% da largura do contêiner da dashboard */
-    max-width: 1200px; /* Define a largura máxima */
-    background-color: $backgroundColor; /* Fundo branco */
-    border: 2px solid $backgroundColor; /* Cor da borda */
-    box-shadow: 0 0px 3px $shadowColor; /* Sombra */
+    width: 100%;
+    max-width: 1200px;
+    background-color: $backgroundColor;
+    border: 2px solid $backgroundColor;
+    box-shadow: 0 0px 3px $shadowColor;
     padding: 30px;
-    border-radius: 3px; /* Borda arredondada (opcional) */
-    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
-}
-
-.dashboard-text {
-    font-size: 30px; /* Tamanho da fonte para o texto */
-}
-
-//--------------------Table---------------------
-.motoristas {
-    margin: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.motoristas h2 {
-    text-align: center;
-    color: #333;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .passageiros {
@@ -54,7 +40,15 @@ main {
     font-family: Arial, sans-serif;
 }
 
-.passageiros h2 {
+.motoristas {
+    margin: 0 auto; /* Centraliza a tabela horizontalmente */
+    font-family: Arial, sans-serif;
+    width: 100%; /* Faz com que ocupe a largura disponível */
+    max-width: 800px; /* Define uma largura máxima */
+    text-align: center; /* Centraliza o texto no contêiner */
+}
+
+.motoristas h2, .passageiros h2 {
     text-align: center;
     color: #333;
 }
@@ -63,16 +57,19 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
+    display: block; /* Garante que o scroll funcione em tabelas */
 }
 
 th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
+    font-size: 14px; /* Reduz um pouco o tamanho da fonte */
 }
 
 th {
-    background-color:#045ce4;
+    background-color: #045ce4;
     color: white;
 }
 
@@ -82,4 +79,28 @@ tbody tr:hover {
 
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px;
+        font-size: 12px; /* Ajusta tamanho da fonte para telas médias */
+    }
+
+    table {
+        font-size: 14px; /* Define uma fonte menor */
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        display: block; /* Tabela como bloco para rolagem */
+        overflow-x: auto; /* Adiciona scroll horizontal */
+        white-space: nowrap; /* Evita quebra de texto nas células */
+    }
+
+    th, td {
+        font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+    }
 }
