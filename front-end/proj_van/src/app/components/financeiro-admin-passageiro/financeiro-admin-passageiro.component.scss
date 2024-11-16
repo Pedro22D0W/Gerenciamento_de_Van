@@ -92,4 +92,37 @@
     transition: background-color 0.2s; /* Adiciona uma transição suave de cor de fundo */
 }
   
+/* Responsividade */
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px;
+        font-size: 12px; /* Ajusta tamanho da fonte para telas médias */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
+    }
+
+    table {
+        font-size: 14px; /* Define uma fonte menor */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
+        display: block; /* Garante que o scroll funcione em tabelas */
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        display: block; /* Tabela como bloco para rolagem */
+        overflow-x: auto; /* Adiciona scroll horizontal */
+        white-space: nowrap; /* Evita quebra de texto nas células */
+        overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
+        display: block; /* Garante que o scroll funcione em tabelas */
+    }
+
+    th, td {
+        font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+    }
+}
   

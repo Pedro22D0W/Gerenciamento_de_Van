@@ -59,20 +59,32 @@ main {
     color: #333;
 }
 
+.motoristas_div{
+    overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
+    display: block; /* Garante que o scroll funcione em tabelas */
+}
+
+.passageiros_div{
+    overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
+    display: block; /* Garante que o scroll funcione em tabelas */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal para telas pequenas */
 }
 
 th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
+    font-size: 14px; /* Reduz um pouco o tamanho da fonte */
 }
 
 th {
-    background-color:#045ce4;
+    background-color: #045ce4;
     color: white;
 }
 
@@ -82,4 +94,34 @@ tbody tr:hover {
 
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px;
+        font-size: 12px; /* Ajusta tamanho da fonte para telas médias */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
+    }
+
+    table {
+        font-size: 14px; /* Define uma fonte menor */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        display: block; /* Tabela como bloco para rolagem */
+        overflow-x: auto; /* Adiciona scroll horizontal */
+        white-space: nowrap; /* Evita quebra de texto nas células */
+    }
+
+    th, td {
+        font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+    }
 }
