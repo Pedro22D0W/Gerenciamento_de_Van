@@ -35,6 +35,18 @@ main {
     box-sizing: border-box;
 }
 
+.motoristas_div{
+    width: 90%; /* Adapta-se ao tamanho da tela */
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.passageiros_div{
+    width: 90%; /* Adapta-se ao tamanho da tela */
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
 .passageiros {
     margin: 20px;
     font-family: Arial, sans-serif;
@@ -46,6 +58,7 @@ main {
     width: 100%; /* Faz com que ocupe a largura disponível */
     max-width: 800px; /* Define uma largura máxima */
     text-align: center; /* Centraliza o texto no contêiner */
+    padding: 30px;
 }
 
 .motoristas h2, .passageiros h2 {
@@ -86,10 +99,16 @@ tbody tr:nth-child(even) {
     th, td {
         padding: 8px;
         font-size: 12px; /* Ajusta tamanho da fonte para telas médias */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
     }
 
     table {
         font-size: 14px; /* Define uma fonte menor */
+        width: 90%; /* Adapta-se ao tamanho da tela */
+        max-width: 1200px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza horizontalmente */
     }
 }
 
