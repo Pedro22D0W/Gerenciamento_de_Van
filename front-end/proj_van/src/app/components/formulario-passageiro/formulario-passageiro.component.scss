@@ -104,3 +104,27 @@ label[for="destino"] {
         justify-content: flex-start;
     }
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-section {
+      padding: 30px;
+      margin: 20px auto;
+      width: 90%; /* Ocupa quase toda a largura da tela */
+  }
+
+  form input {
+      height: 40px; /* Reduz o tamanho dos campos em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+      padding: 10px;
+      border-radius: 5px; /* Reduz o arredondamento em telas menores */
+  }
+
+  form input {
+      font-size: 14px; /* Ajusta o tamanho da fonte */
+  }
+}
