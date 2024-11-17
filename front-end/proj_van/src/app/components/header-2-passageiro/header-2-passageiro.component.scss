@@ -90,6 +90,44 @@
     background-color: #ddd;
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column; /* Itens empilhados em telas menores */
+        align-items: stretch; /* Estica os itens para ocuparem toda a largura */
+    }
+
+    .nav-container {
+        justify-content: center; /* Centraliza os botões */
+        gap: 10px; /* Reduz o espaçamento */
+    }
+
+    .logo-container {
+        text-align: center; /* Centraliza o logo */
+        margin-bottom: 10px;
+    }
+
+    .profile-container {
+        justify-content: center; /* Centraliza o perfil */
+    }
+
+    .logout-btn {
+        padding: 8px 15px; /* Ajusta o botão de logout */
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        flex-direction: column; /* Empilha os botões em telas muito pequenas */
+        align-items: center;
+    }
+
+    .nav-btn, .logout-btn {
+        width: 100%; /* Botões ocupam toda a largura */
+        text-align: center;
+    }
+  
 /* Estilizar a imagem como um círculo */
 .profile-picture-container {
     display: flex;
