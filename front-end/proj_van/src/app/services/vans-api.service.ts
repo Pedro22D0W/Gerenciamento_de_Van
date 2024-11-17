@@ -69,6 +69,12 @@ export class VansAPIService {
   GetBoletosPassageiro(): Observable<any> {
     return this.client.get('http://localhost:8080/passageiro/boletos-passageiro', { headers: this.getHeaders() });
   }
+  GetMotoristaProfile(): Observable<any> {
+    return this.client.get('http://localhost:8080/motorista/get-profile', { headers: this.getHeaders(),responseType: 'text'  });
+  }
+  GetPassageiroProfile(): Observable<any> {
+    return this.client.get('http://localhost:8080/passageiro/get-profile', { headers: this.getHeaders(),responseType: 'text' });
+  }
 
   DownloadBoleto(boletoURL: string): Observable<any> {
     console.log(boletoURL)

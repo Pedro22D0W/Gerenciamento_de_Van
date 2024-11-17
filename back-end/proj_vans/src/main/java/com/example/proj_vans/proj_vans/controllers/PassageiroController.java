@@ -13,6 +13,7 @@ import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
 import com.example.proj_vans.proj_vans.services.UploadService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -99,6 +100,18 @@ public class PassageiroController {
 
 
         return this.GerarListaDeMotoristas(passageiro);
+
+    }
+    @GetMapping("/get-profile")
+    public ResponseEntity<String> GetProfile(HttpServletRequest request){
+
+        var authHeader = request.getHeader("Authorization");
+        String token = authHeader.replace(("Bearer "),"");
+        String email = tokenService.validateToken(token);
+        Passageiro passageiro = this.findPassageiro(email);
+
+
+        return ResponseEntity.ok(passageiro.getProfile());
 
     }
 

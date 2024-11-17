@@ -33,6 +33,8 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.POST,"/passageiro/store").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/passageiro/getAll").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/motorista/PassageirosDaLinha").hasRole("MOTORISTA")
+                        .requestMatchers(HttpMethod.POST,"/motorista/get-profile").hasRole("MOTORISTA")
+                        .requestMatchers(HttpMethod.POST,"/passageiro/get-profile").hasRole("PASSAGEIRO")
                         .requestMatchers(HttpMethod.PUT,"/boleto/{id}/updateStatus").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos-passageiro").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos/{passageiroId}").permitAll()

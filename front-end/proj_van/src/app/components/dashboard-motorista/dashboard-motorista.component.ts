@@ -21,6 +21,7 @@ export class DashboardMotoristaComponent {
   
   passageiros1: any[] = [];
   passageiros2: any[] = [];
+  foto_de_perfil: any;
 
   constructor(private service: VansAPIService) {}
 
@@ -34,6 +35,9 @@ export class DashboardMotoristaComponent {
       this.passageiros2 = JSON.parse(window.localStorage["passageiros2"]) 
       console.log(this.passageiros1)
     }
+    this.service.GetMotoristaProfile().subscribe(data => {
+      this.foto_de_perfil = data;
+    });
 
   }
 
