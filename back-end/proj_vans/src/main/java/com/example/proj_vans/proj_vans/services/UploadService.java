@@ -1,11 +1,8 @@
 package com.example.proj_vans.proj_vans.services;
 
 import com.example.proj_vans.proj_vans.FileStorageProperties;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,15 +17,15 @@ public class UploadService {
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
     }
-    public String uploadFile(MultipartFile file){
+    public String uploadFile(MultipartFile file, Path newFileStorageLocation,String downloadUri ){
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
-            Path targetLocation = fileStorageLocation.resolve(fileName);
+            Path targetLocation = newFileStorageLocation.resolve(fileName);
             file.transferTo(targetLocation);
 
             String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path("/boleto/download/")
+                    .path(downloadUri)
                     .path(fileName)
                     .toUriString();
             return  fileDownloadUri;

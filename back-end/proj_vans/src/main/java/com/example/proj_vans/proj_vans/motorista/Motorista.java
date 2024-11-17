@@ -1,10 +1,12 @@
 package com.example.proj_vans.proj_vans.motorista;
 
+import com.example.proj_vans.proj_vans.MotoristaDTO;
 import com.example.proj_vans.proj_vans.UserRole;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,6 +24,7 @@ public class Motorista implements UserDetails {
     private String cnh;
     private String telefone;
     private Long linha;
+    private String profile;
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
@@ -29,13 +32,13 @@ public class Motorista implements UserDetails {
     }
 
 //Construtor com todos os argumentos
-    public Motorista(String nome, String email, String senha, String cnh, String telefone, Long linha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.cnh = cnh;
-        this.telefone = telefone;
-        this.linha = linha;
+    public Motorista(MotoristaDTO data) {
+        this.nome = data.nome();
+        this.email = data.email();
+        this.senha =  new BCryptPasswordEncoder().encode(data.senha());;
+        this.cnh = data.cnh();
+        this.telefone = data.telefone();
+        this.linha = data.linha();
         this.role = UserRole.MOTORISTA;
     }
 
@@ -96,6 +99,13 @@ public class Motorista implements UserDetails {
         this.linha = linha;
     }
 
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
     //metodos do string security
 
     @Override

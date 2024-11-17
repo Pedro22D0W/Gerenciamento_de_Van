@@ -1,10 +1,12 @@
 package com.example.proj_vans.proj_vans.passageiro;
 
+import com.example.proj_vans.proj_vans.PassageiroDTO;
 import com.example.proj_vans.proj_vans.UserRole;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.Time;
 import java.util.Collection;
@@ -28,21 +30,23 @@ public class Passageiro implements UserDetails {
     private Long linha;
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    private String profile;
 
     public Passageiro() {
     }
 
-    public Passageiro(String nome, String senha, String email, String cpf, String logradouro, String destino, Time retorno, String telefone, Long linha, Long role) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.logradouro = logradouro;
-        this.destino = destino;
-        this.retorno = retorno;
-        this.telefone = telefone;
-        this.linha = linha;
+    public Passageiro(PassageiroDTO data) {
+        this.nome = data.nome();
+        this.email = data.email();
+        this.senha =  new BCryptPasswordEncoder().encode(data.senha());;
+        this.cpf = data.cpf();
+        this.logradouro = data.logradouro();
+        this.destino = data.destino();
+        this.retorno = data.retorno();
+        this.telefone = data.telefone();
+        this.linha = data.linha();
         this.role = UserRole.PASSAGEIRO;
+
     }
 
     public Long getId() {
@@ -123,6 +127,14 @@ public class Passageiro implements UserDetails {
 
     public void setLinha(Long linha) {
         this.linha = linha;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
     @Override

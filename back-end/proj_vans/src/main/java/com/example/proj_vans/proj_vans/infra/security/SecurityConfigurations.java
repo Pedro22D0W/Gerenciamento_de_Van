@@ -37,6 +37,8 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos-passageiro").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro/boletos/{passageiroId}").permitAll()
                         .requestMatchers(HttpMethod.GET,"/passageiro//get-my-motorista").permitAll()
+                        .requestMatchers("/profile_passageiros/**").permitAll()
+                        .requestMatchers("/profile_motoristas/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
