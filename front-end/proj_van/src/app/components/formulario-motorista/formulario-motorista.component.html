@@ -17,6 +17,8 @@
 
       <label for="linha">Linha:</label>
       <input id="linha" formControlName="linha" type="number" />
+      <label for="file">Foto de perfil:</label>
+      <input id="file" type="file" (change)="onFileSelected($event)" />
   
       <btn-primary 
         btn-text="Submeter Formulário"

@@ -1,17 +1,21 @@
 package com.example.proj_vans.proj_vans.controllers;
 
-import com.example.proj_vans.proj_vans.UserRole;
+import com.example.proj_vans.proj_vans.FileStorageProperties;
+import com.example.proj_vans.proj_vans.MotoristaDTO;
 import com.example.proj_vans.proj_vans.infra.security.TokenService;
 import com.example.proj_vans.proj_vans.motorista.Motorista;
 import com.example.proj_vans.proj_vans.motorista.MotoristaRepository;
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
+import com.example.proj_vans.proj_vans.services.UploadService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,18 +25,27 @@ import java.util.List;
 @RequestMapping("motorista")
 public class MotoristaController {
     @Autowired
+    UploadService uploadService;
+    private final Path fileStorageLocation;
+    @Autowired
     private MotoristaRepository repository;
     @Autowired
     TokenService tokenService;
     @Autowired
     PassageiroRepository passageiroRepository;
 
+    public MotoristaController(FileStorageProperties fileStorageProperties) {
+        this.fileStorageLocation = Paths.get(fileStorageProperties.getMotoristasProfileDir())
+                .toAbsolutePath().normalize();
+    }
+
     @PostMapping("/store")
-    public void StoreMotorista(@RequestBody Motorista data){
-        String senhaCriptografada = new BCryptPasswordEncoder().encode(data.getSenha());
-        data.setSenha(senhaCriptografada);
-        data.setRole(UserRole.MOTORISTA);
-        repository.save(data);
+    public void StoreMotorista(@RequestPart("file") MultipartFile file, @RequestPart("data") MotoristaDTO data){
+        Motorista motorista = new Motorista(data);
+        String UriProfileLink = uploadService.uploadFile(file,fileStorageLocation,"profile_motoristas/");
+        motorista.setProfile(UriProfileLink);
+        repository.save(motorista);
+        repository.save(motorista);
     }
 
     @GetMapping("/getAll")
@@ -49,6 +62,18 @@ public class MotoristaController {
 
 
         return this.GerarListaDePassageiros(motorista);
+        
+    }
+    @GetMapping("/get-profile")
+    public ResponseEntity<String> GetProfile(HttpServletRequest request){
+
+        var authHeader = request.getHeader("Authorization");
+        String token = authHeader.replace(("Bearer "),"");
+        String email = tokenService.validateToken(token);
+        Motorista motorista = this.findMotorista(email);
+
+
+        return ResponseEntity.ok(motorista.getProfile());
         
     }
 

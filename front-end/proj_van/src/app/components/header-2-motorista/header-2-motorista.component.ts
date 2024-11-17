@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { VansAPIService } from '../../services/vans-api.service';
 
 @Component({
   selector: 'app-header-2-motorista',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class Header2MotoristaComponent {
 
-  constructor(private router: Router) {}
+  foto_de_perfil: any;
+
+  constructor(private router: Router,private service : VansAPIService) {}
 
   logOut(){
     console.log("entrou");
@@ -18,5 +21,13 @@ export class Header2MotoristaComponent {
     sessionStorage.clear();
     this.router.navigate(["/"]);
   }
+
+  ngOnInit() {
+    this.service.GetMotoristaProfile().subscribe(data => {
+      this.foto_de_perfil = data;
+    });
+
+  }
+
 
 }
