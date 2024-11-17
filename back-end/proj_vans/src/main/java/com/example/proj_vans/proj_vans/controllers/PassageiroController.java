@@ -1,6 +1,8 @@
 package com.example.proj_vans.proj_vans.controllers;
 
-import com.example.proj_vans.proj_vans.UserRole;
+
+import com.example.proj_vans.proj_vans.FileStorageProperties;
+import com.example.proj_vans.proj_vans.PassageiroDTO;
 import com.example.proj_vans.proj_vans.boleto.Boleto;
 import com.example.proj_vans.proj_vans.boleto.BoletoRepository;
 import com.example.proj_vans.proj_vans.infra.security.TokenService;
@@ -8,11 +10,14 @@ import com.example.proj_vans.proj_vans.motorista.Motorista;
 import com.example.proj_vans.proj_vans.motorista.MotoristaRepository;
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
+import com.example.proj_vans.proj_vans.services.UploadService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,10 @@ import java.util.List;
 @RequestMapping("passageiro")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PassageiroController {
+
+    @Autowired
+    UploadService uploadService;
+    private final Path fileStorageLocation;
     @Autowired
     private PassageiroRepository repository;
     @Autowired
@@ -29,12 +38,19 @@ public class PassageiroController {
     @Autowired
     private MotoristaRepository motoristaRepository;
 
+    public PassageiroController(FileStorageProperties fileStorageProperties) {
+        this.fileStorageLocation = Paths.get(fileStorageProperties.getPassageirosProfileDir())
+                .toAbsolutePath().normalize();
+    }
+
+
     @PostMapping("/store")
-    public void StorePassageiro(@RequestBody Passageiro data){
-        String senhaCriptografada = new BCryptPasswordEncoder().encode(data.getSenha());
-        data.setSenha(senhaCriptografada);
-        data.setRole(UserRole.PASSAGEIRO);
-        repository.save(data);
+    public void StorePassageiro(@RequestPart("file") MultipartFile file,@RequestPart("data") PassageiroDTO data){
+
+        Passageiro passageiro = new Passageiro(data);
+        String UriProfileLink = uploadService.uploadFile(file,fileStorageLocation,"profile_passageiros/");
+        passageiro.setProfile(UriProfileLink);
+        repository.save(passageiro);
     }
 
     @GetMapping("/getAll")

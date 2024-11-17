@@ -4,12 +4,12 @@ import com.example.proj_vans.proj_vans.BoletoDTO;
 import com.example.proj_vans.proj_vans.FileStorageProperties;
 import com.example.proj_vans.proj_vans.boleto.Boleto;
 import com.example.proj_vans.proj_vans.boleto.BoletoRepository;
-// import com.example.proj_vans.proj_vans.infra.security.TokenService;
+
 import com.example.proj_vans.proj_vans.passageiro.Passageiro;
 import com.example.proj_vans.proj_vans.passageiro.PassageiroRepository;
 import com.example.proj_vans.proj_vans.services.UploadService;
 
-// import jakarta.servlet.http.HttpServletRequest;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -61,7 +61,7 @@ public class BoletoController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Passageiro não encontrado")
         );
 
-        String fileDownloadUri = uploadService.uploadFile(file);
+        String fileDownloadUri = uploadService.uploadFile(file,fileStorageLocation,"/boleto/download/");
         Boleto boleto = new Boleto(passageiro,Data,fileDownloadUri);
         boletoRepository.save(boleto);
 
