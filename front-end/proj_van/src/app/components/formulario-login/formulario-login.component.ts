@@ -28,15 +28,26 @@ export class FormularioLoginComponent {
       senha: new FormControl('', [
         Validators.required,
         Validators.minLength(1),
-      ])
-    });
+      ]),
+    rememberMe: new FormControl(false)
+  });
   }
 
   // REQUISIÇÃO DA API
   onSubmit() {
     if (this.loginForms.valid) {
+
       this.service.login(this.loginForms.value).subscribe({
         next: (response) => {
+
+          if (this.loginForms.value.rememberMe) {
+            localStorage.setItem('email', this.loginForms.value.email);
+            localStorage.setItem('senha', this.loginForms.value.senha); // Opcional: se quiser salvar a senha
+          } else {
+            localStorage.removeItem('email');
+            localStorage.removeItem('senha');
+          }
+
           console.log('Passageiro cadastrado com sucesso!', response);
           if (sessionStorage.getItem("role") == "ADMIN") {
             this.router.navigate(['/dashboard']);
@@ -58,6 +69,19 @@ export class FormularioLoginComponent {
     } else {
       console.log('Inválido') ;
       console.log(this.loginForms.value)
+    }
+  }
+  ngOnInit() {
+    // Verificar se os dados de login estão no localStorage
+    const savedEmail = localStorage.getItem('email');
+    const savedSenha = localStorage.getItem('senha');
+
+    // Se existir e-mail e senha salvos, preencher o formulário e tentar logar automaticamente
+    if (savedEmail && savedSenha) {
+      this.loginForms.controls['email'].setValue(savedEmail);
+      this.loginForms.controls['senha'].setValue(savedSenha);
+      this.loginForms.controls['rememberMe'].setValue(true);
+      this.onSubmit(); // Tentar logar automaticamente
     }
   }
 }

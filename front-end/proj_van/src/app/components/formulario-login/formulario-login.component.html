@@ -8,7 +8,11 @@
 
                 <label>Senha:</label>
                 <input id="senha" formControlName="senha" type="password" />
-
+                <div id="lembrar_senha">
+                    <input type="checkbox" id="rememberMe" formControlName="rememberMe">
+                    <label for="rememberMe"> Lembrar Senha</label> 
+                </div>
+               
                 <btn-primary 
                     btn-text = "Login"
                     (submit) = "onSubmit()"
