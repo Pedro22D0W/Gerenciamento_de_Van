@@ -6,60 +6,64 @@
     <div class="dashboard-content">
       <section class="motoristas">
         <h2>Motoristas</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome Completo</th>
-              <th>E-mail</th>
-              <th>CNH</th>
-              <th>Telefone</th>
-              <th>Linha</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let motorista of motoristas">
-              <td>{{ motorista.id }}</td>
-              <td>{{ motorista.nome }}</td>
-              <td>{{ motorista.email }}</td>
-              <td>{{ motorista.cnh }}</td>
-              <td>{{ motorista.telefone }}</td>
-              <td>{{ motorista.linha }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="motoristas_div">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome Completo</th>
+                <th>E-mail</th>
+                <th>CNH</th>
+                <th>Telefone</th>
+                <th>Linha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let motorista of motoristas">
+                <td>{{ motorista.id }}</td>
+                <td>{{ motorista.nome }}</td>
+                <td>{{ motorista.email }}</td>
+                <td>{{ motorista.cnh }}</td>
+                <td>{{ motorista.telefone }}</td>
+                <td>{{ motorista.linha }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="passageiros">
         <h2>Passageiros</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome Completo</th>
-              <th>E-mail</th>
-              <th>CPF</th>
-              <th>Logradouro</th>
-              <th>Destino</th>
-              <th>Retorno</th>
-              <th>Telefone</th>
-              <th>Linha</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let passageiro of passageiros">
-              <td>{{ passageiro.id }}</td>
-              <td>{{ passageiro.nome }}</td>
-              <td>{{ passageiro.email }}</td>
-              <td>{{ passageiro.cpf }}</td>
-              <td>{{ passageiro.logradouro }}</td>
-              <td>{{ passageiro.destino }}</td>
-              <td>{{ passageiro.retorno }}</td> <!-- Agora deve funcionar -->
-              <td>{{ passageiro.telefone }}</td>
-              <td>{{ passageiro.linha }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="passageiros_div">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome Completo</th>
+                <th>E-mail</th>
+                <th>CPF</th>
+                <th>Logradouro</th>
+                <th>Destino</th>
+                <th>Retorno</th>
+                <th>Telefone</th>
+                <th>Linha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let passageiro of passageiros">
+                <td>{{ passageiro.id }}</td>
+                <td>{{ passageiro.nome }}</td>
+                <td>{{ passageiro.email }}</td>
+                <td>{{ passageiro.cpf }}</td>
+                <td>{{ passageiro.logradouro }}</td>
+                <td>{{ passageiro.destino }}</td>
+                <td>{{ passageiro.retorno }}</td> <!-- Agora deve funcionar -->
+                <td>{{ passageiro.telefone }}</td>
+                <td>{{ passageiro.linha }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   </div>
