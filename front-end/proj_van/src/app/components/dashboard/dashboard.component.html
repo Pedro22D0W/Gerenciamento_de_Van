@@ -45,7 +45,7 @@
   </div>
 
 
-<!-- Modal -->
+<!-- Modal Motorista-->
 <div *ngIf="selectedMotorista" class="modal">
   <div class="modal-content">
     <button class="modal-button" (click)="fecharModal()">x</button>
@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Passageiro-->
 <div *ngIf="selectedPassageiro" class="modal">
   <div class="modal-content">
     <button class="modal-button" (click)="fecharModal()">x</button>
@@ -72,8 +72,10 @@
     <h2>{{ selectedPassageiro.nome }}</h2>
     <ul class="info-list">
       <li><strong>E-mail:</strong> {{ selectedPassageiro.email }}</li>
-      <li><strong>CNH:</strong> {{ selectedPassageiro.cnh }}</li>
+      <li><strong>Endereço:</strong> {{ selectedPassageiro.logradouro }}</li>
       <li><strong>Telefone:</strong> {{ selectedPassageiro.telefone }}</li>
+      <li><strong>Destino:</strong> {{ selectedPassageiro.destino }}</li>
+      <li><strong>Horário:</strong> {{ selectedPassageiro.horario }}</li>
       <li><strong>Linha:</strong> {{ selectedPassageiro.linha }}</li>
     </ul>
   </div>

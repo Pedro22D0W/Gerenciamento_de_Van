@@ -12,11 +12,8 @@
           </tr>
         <tbody>
           <tr *ngFor="let passageiro of passageiros1">
-            <td>{{ passageiro.nome }}</td>
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
-            <td>
-              <button class="detail-button" (click)="abrirModal(passageiro)">Ver detalhes</button>
-            </td>
             <td>
               <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
             </td>
@@ -31,11 +28,11 @@
           </tr>
         <tbody>
           <tr *ngFor="let passageiro of passageiros2">
-            <td>{{ passageiro.nome }}</td>
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
-                <td >
-                    <button class="delete-button" (click)="removerPassageiroLista2(passageiro)">Remover</button>
-                </td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -51,18 +48,14 @@
       <img [src]="selectedPassageiro.profile" alt="" class="profile-picture" />
     </div>
     <h2>{{ selectedPassageiro.nome }}</h2>
-    <table>
-          <td>Endereço:</td>
-          <td>Contato:</td>
-        <tbody>
-          <td>
-            {{ selectedPassageiro.logradouro }}
-          </td>
-          <td>
-            {{ selectedPassageiro.telefone }}
-          </td>
-        </tbody>
-    </table>
+    <ul class="info-list">
+      <li><strong>E-mail:</strong> {{ selectedPassageiro.email }}</li>
+      <li><strong>Endereço:</strong> {{ selectedPassageiro.logradouro }}</li>
+      <li><strong>Telefone:</strong> {{ selectedPassageiro.telefone }}</li>
+      <li><strong>Destino:</strong> {{ selectedPassageiro.destino }}</li>
+      <li><strong>Horário:</strong> {{ selectedPassageiro.retorno }}</li>
+      <li><strong>Linha:</strong> {{ selectedPassageiro.linha }}</li>
+    </ul>
   </div>
 </div>
 

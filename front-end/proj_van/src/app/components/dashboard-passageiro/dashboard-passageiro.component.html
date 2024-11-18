@@ -10,7 +10,7 @@
             <table>
               <thead>
                 <tr>
-                  <th colspan="2">Nome Completo</th>
+                  <!-- Algo -->
                 </tr>
               </thead>
               <tbody>
@@ -39,17 +39,11 @@
       <img [src]="selectedMotorista.profile" alt="" class="profile-picture" />
     </div>
     <h2>{{ selectedMotorista.nome }}</h2>
-    <table>
-          <td>CNH:</td>
-          <td>Contato:</td>
-        <tbody>
-          <td>
-            {{ selectedMotorista.cnh }}
-          </td>
-          <td>
-            {{ selectedMotorista.telefone }}
-          </td>
-        </tbody>
-    </table>
+    <ul class="info-list">
+      <li><strong>E-mail:</strong> {{ selectedMotorista.email }}</li>
+      <li><strong>CNH:</strong> {{ selectedMotorista.cnh }}</li>
+      <li><strong>Telefone:</strong> {{ selectedMotorista.telefone }}</li>
+      <li><strong>Linha:</strong> {{ selectedMotorista.linha }}</li>
+    </ul>
   </div>
 </div>

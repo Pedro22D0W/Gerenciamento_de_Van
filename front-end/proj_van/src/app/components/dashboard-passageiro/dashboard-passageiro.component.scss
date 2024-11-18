@@ -155,4 +155,16 @@ th {
     display: flex;
 }
 
+.info-list {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+    margin: 20px 0;
+}
+  
+.info-list li {
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    font-size: 16px; /* Tamanho da fonte */
+    line-height: 1.5; /* Altura da linha */
+}
+
 
