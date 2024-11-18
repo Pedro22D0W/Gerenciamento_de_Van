@@ -18,8 +18,24 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent implements OnInit {
   motoristas: any[] = [];
   passageiros: any[] = [];
+  selectedPassageiro: any = null;
+  selectedMotorista: any = null;
 
   constructor(private service: VansAPIService) {}
+
+  abrirModal1(motorista: any) {
+    console.log('Abrindo modal para o motorista:', motorista); // Teste
+    this.selectedMotorista = motorista;
+  }
+
+  abrirModal2(passageiro: any) {
+    this.selectedPassageiro = passageiro;
+  }
+
+  fecharModal() {
+    this.selectedPassageiro = null;
+    this.selectedMotorista = null;
+  }
 
   ngOnInit() {
     this.GetMotoristas();
