@@ -12,7 +12,7 @@
           </tr>
         <tbody>
           <tr *ngFor="let passageiro of passageiros1">
-            <td>{{ passageiro.nome }}</td>
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
             <td>
               <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
@@ -28,14 +28,34 @@
           </tr>
         <tbody>
           <tr *ngFor="let passageiro of passageiros2">
-            <td>{{ passageiro.nome }}</td>
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
-                <td >
-                    <button class="delete-button" (click)="removerPassageiroLista2(passageiro)">Remover</button>
-                </td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
+            </td>
           </tr>
         </tbody>
       </table>
     </section>
   </div>
 </div>
+
+<!-- Modal -->
+<div *ngIf="selectedPassageiro" class="modal">
+  <div class="modal-content">
+    <button class="modal-button" (click)="fecharModal()">x</button>
+    <div class="profile-picture-container">
+      <img [src]="selectedPassageiro.profile" alt="" class="profile-picture" />
+    </div>
+    <h2>{{ selectedPassageiro.nome }}</h2>
+    <ul class="info-list">
+      <li><strong>E-mail:</strong> {{ selectedPassageiro.email }}</li>
+      <li><strong>Endereço:</strong> {{ selectedPassageiro.logradouro }}</li>
+      <li><strong>Telefone:</strong> {{ selectedPassageiro.telefone }}</li>
+      <li><strong>Destino:</strong> {{ selectedPassageiro.destino }}</li>
+      <li><strong>Horário:</strong> {{ selectedPassageiro.retorno }}</li>
+      <li><strong>Linha:</strong> {{ selectedPassageiro.linha }}</li>
+    </ul>
+  </div>
+</div>
+

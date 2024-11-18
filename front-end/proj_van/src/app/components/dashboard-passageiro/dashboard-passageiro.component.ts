@@ -13,8 +13,17 @@ import { CommonModule } from '@angular/common'; // Importar CommonModule
 })
 export class DashboardPassageiroComponent implements OnInit {
   motorista: any[] = []; // inicializar como array
+  selectedMotorista: any = null;
 
   constructor(private vansAPIService: VansAPIService) {}
+
+  abrirModal(motorista: any) {
+    this.selectedMotorista = motorista;
+  }
+
+  fecharModal() {
+    this.selectedMotorista = null;
+  }
 
   ngOnInit(): void {
     // Chama a API para buscar o motorista do passageiro logado
