@@ -182,7 +182,7 @@ th {
     justify-content: center;
 }
 
-  .modal-button {
+.modal-button {
     background-color: $primaryColor; /* Cor de fundo do botão */
     color: $backgroundColor; /* Cor do texto do botão */
     border: none; /* Remove a borda do botão */
@@ -190,8 +190,5 @@ th {
     border-radius: 5px; /* Adiciona bordas arredondadas */
     cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
     font-weight: bold; /* Deixa o texto em negrito */
-    // right: 20px;
-    // top: 10px;
     display: flex;
-    
-  }
+}

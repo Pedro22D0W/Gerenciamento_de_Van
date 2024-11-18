@@ -10,14 +10,15 @@
             <table>
               <thead>
                 <tr>
-                  <th>Nome</th>
-                  <th>Contato</th>
+                  <th colspan="2">Nome</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let item of motorista">
                   <td>{{ item.nome }}</td>
-                  <td>{{ item.telefone }}</td>
+                  <td>
+                    <button class="detail-button" (click)="abrirModal(item)">Ver detalhes</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -27,5 +28,28 @@
             <p>Nenhum motorista encontrado.</p>
           </div>
     </section>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedMotorista" class="modal">
+  <div class="modal-content">
+    <button class="modal-button" (click)="fecharModal()">x</button>
+    <div class="profile-picture-container">
+      <img [src]="selectedMotorista.profile" alt="" class="profile-picture" />
+    </div>
+    <h2>{{ selectedMotorista.nome }}</h2>
+    <table>
+          <td>CNH:</td>
+          <td>Contato:</td>
+        <tbody>
+          <td>
+            {{ selectedMotorista.cnh }}
+          </td>
+          <td>
+            {{ selectedMotorista.telefone }}
+          </td>
+        </tbody>
+    </table>
   </div>
 </div>
