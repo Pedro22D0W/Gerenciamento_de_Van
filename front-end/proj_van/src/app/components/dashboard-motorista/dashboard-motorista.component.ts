@@ -21,9 +21,18 @@ export class DashboardMotoristaComponent {
   
   passageiros1: any[] = [];
   passageiros2: any[] = [];
-  foto_de_perfil: any;
+  // default_foto_de_perfil: any = "http://localhost:8080/profile_passageiros/Captura%20de%20tela%202024-10-26%20102433.png";
+  selectedPassageiro: any = null;
 
   constructor(private service: VansAPIService) {}
+  
+  abrirModal(passageiro: any) {
+    this.selectedPassageiro = passageiro;
+  }
+
+  fecharModal() {
+    this.selectedPassageiro = null;
+  }
 
   ngOnInit() {
     var localData = window.localStorage["passageiros1"];
@@ -35,9 +44,9 @@ export class DashboardMotoristaComponent {
       this.passageiros2 = JSON.parse(window.localStorage["passageiros2"]) 
       console.log(this.passageiros1)
     }
-    this.service.GetMotoristaProfile().subscribe(data => {
-      this.foto_de_perfil = data;
-    });
+    // this.service.GetMotoristaProfile().subscribe(data => {
+    //   this.foto_de_perfil = data;
+    // });
 
   }
 

@@ -15,6 +15,9 @@
             <td>{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
             <td>
+              <button class="detail-button" (click)="abrirModal(passageiro)">Ver detalhes</button>
+            </td>
+            <td>
               <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
             </td>
           </tr>
@@ -39,3 +42,27 @@
     </section>
   </div>
 </div>
+
+<!-- Modal -->
+<div *ngIf="selectedPassageiro" class="modal">
+  <div class="modal-content">
+    <button class="modal-button" (click)="fecharModal()">x</button>
+    <div class="profile-picture-container">
+      <img [src]="selectedPassageiro.profile" alt="" class="profile-picture" />
+    </div>
+    <h2>{{ selectedPassageiro.nome }}</h2>
+    <table>
+          <td>Endereço:</td>
+          <td>Contato:</td>
+        <tbody>
+          <td>
+            {{ selectedPassageiro.logradouro }}
+          </td>
+          <td>
+            {{ selectedPassageiro.telefone }}
+          </td>
+        </tbody>
+    </table>
+  </div>
+</div>
+
