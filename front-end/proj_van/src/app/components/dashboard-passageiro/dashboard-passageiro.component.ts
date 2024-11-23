@@ -13,7 +13,6 @@ import { CommonModule } from '@angular/common'; // Importar CommonModule
 })
 export class DashboardPassageiroComponent implements OnInit {
   motorista: any[] = []; // inicializar como array
-  motorista_volta: any[] = [];
   selectedMotorista: any = null;
 
   constructor(private vansAPIService: VansAPIService) {}
@@ -32,15 +31,6 @@ export class DashboardPassageiroComponent implements OnInit {
       (data) => {
         console.log("Dados do motorista:", data); // Verificar o conteúdo dos dados
         this.motorista = data; // Atribuir os dados à variável
-      },
-      (error) => {
-        console.error("Erro ao buscar o motorista do passageiro:", error);
-      }
-    );
-    this.vansAPIService.GetMyMotoristaVolta().subscribe(
-      (data) => {
-        console.log("Dados do motorista:", data); // Verificar o conteúdo dos dados
-        this.motorista_volta = data; // Atribuir os dados à variável
       },
       (error) => {
         console.error("Erro ao buscar o motorista do passageiro:", error);

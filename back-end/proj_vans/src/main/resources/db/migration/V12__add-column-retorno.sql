@@ -1,1 +1,0 @@
-ALTER TABLE motoristas ADD COLUMN retorno TIME;
