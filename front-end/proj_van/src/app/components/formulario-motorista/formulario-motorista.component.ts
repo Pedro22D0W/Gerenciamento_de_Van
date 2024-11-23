@@ -41,9 +41,6 @@ export class FormularioMotoristaComponent {
         Validators.maxLength(11),
         Validators.pattern('^[0-9]*$')
       ]),
-      retorno: new FormControl('', [
-        Validators.required,
-      ]),
       telefone: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
@@ -75,7 +72,6 @@ export class FormularioMotoristaComponent {
       cnh: this.formularioForms.get('cnh')?.value,
       telefone: this.formularioForms.get('telefone')?.value,
       linha: this.formularioForms.get('linha')?.value,
-      retorno: this.formularioForms.get('retorno')?.value,
     };
   
     formDataFileDTO.append('data', new Blob([JSON.stringify(passageiroData)], { type: 'application/json' }));
