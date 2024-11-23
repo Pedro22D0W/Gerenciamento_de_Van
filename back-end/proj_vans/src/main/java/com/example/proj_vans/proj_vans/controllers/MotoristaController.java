@@ -45,7 +45,6 @@ public class MotoristaController {
         String UriProfileLink = uploadService.uploadFile(file,fileStorageLocation,"profile_motoristas/");
         motorista.setProfile(UriProfileLink);
         repository.save(motorista);
-        repository.save(motorista);
     }
 
     @GetMapping("/getAll")
@@ -63,6 +62,18 @@ public class MotoristaController {
 
         return this.GerarListaDePassageiros(motorista);
         
+    }
+    @GetMapping("/getPassageirosDaVolta")
+    public List<Passageiro> GetPassageirosDaVolta(HttpServletRequest request){
+
+        var authHeader = request.getHeader("Authorization");
+        String token = authHeader.replace(("Bearer "),"");
+        String email = tokenService.validateToken(token);
+        Motorista motorista = this.findMotorista(email);
+
+
+        return this.GerarListaDePassageirosVolta(motorista);
+
     }
     @GetMapping("/get-profile")
     public ResponseEntity<String> GetProfile(HttpServletRequest request){
@@ -83,6 +94,19 @@ public class MotoristaController {
         for (Passageiro passageiro:AllPassageiros
              ) {
             if (passageiro.getLinha().equals(motorista.getLinha())){
+                passageirosDaLinha.add(passageiro);
+            }
+
+        }
+
+        return passageirosDaLinha;
+    }
+    public List<Passageiro> GerarListaDePassageirosVolta(Motorista motorista){
+        List<Passageiro> AllPassageiros = passageiroRepository.findAll();
+        List<Passageiro> passageirosDaLinha = new ArrayList<>();
+        for (Passageiro passageiro:AllPassageiros
+        ) {
+            if (passageiro.getRetorno().equals(motorista.getRetorno())){
                 passageirosDaLinha.add(passageiro);
             }
 
