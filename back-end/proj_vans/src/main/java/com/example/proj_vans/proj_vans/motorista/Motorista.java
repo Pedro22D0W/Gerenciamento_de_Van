@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.sql.Time;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class Motorista implements UserDetails {
     private String telefone;
     private Long linha;
     private String profile;
+    private Time retorno;
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
@@ -39,6 +41,7 @@ public class Motorista implements UserDetails {
         this.cnh = data.cnh();
         this.telefone = data.telefone();
         this.linha = data.linha();
+        this.retorno = data.retorno();
         this.role = UserRole.MOTORISTA;
     }
 
@@ -107,6 +110,15 @@ public class Motorista implements UserDetails {
         this.profile = profile;
     }
     //metodos do string security
+
+
+    public Time getRetorno() {
+        return retorno;
+    }
+
+    public void setRetorno(Time retorno) {
+        this.retorno = retorno;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
