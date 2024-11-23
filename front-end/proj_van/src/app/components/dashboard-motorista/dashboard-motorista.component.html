@@ -31,7 +31,41 @@
             <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
             <td>{{ passageiro.destino }}</td>
             <td>
-              <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
+              <button class="delete-button" (click)="removerPassageiroLista2(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="passageiros">
+      <h2>Passageiros que pegarão o transporte na volta:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros_volta1">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroVolta1(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Passageiros que não pegarão o transporte na volta:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros_volta2">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroVolta2(passageiro)">Remover</button>
             </td>
           </tr>
         </tbody>

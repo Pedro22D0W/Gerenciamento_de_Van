@@ -102,6 +102,19 @@ public class PassageiroController {
         return this.GerarListaDeMotoristas(passageiro);
 
     }
+
+    @GetMapping("/get-my-motorista-volta")
+    public List<Motorista> GetMyMotoristaVolta(HttpServletRequest request){
+
+        var authHeader = request.getHeader("Authorization");
+        String token = authHeader.replace(("Bearer "),"");
+        String email = tokenService.validateToken(token);
+        Passageiro passageiro = this.findPassageiro(email);
+
+
+        return this.GerarListaDeMotoristasVolta(passageiro);
+
+    }
     @GetMapping("/get-profile")
     public ResponseEntity<String> GetProfile(HttpServletRequest request){
 
@@ -121,6 +134,18 @@ public class PassageiroController {
         for (Motorista motorista:AllMotoristas
         ) {
             if (passageiro.getLinha().equals(motorista.getLinha())){
+                MotoristasDaLinha.add(motorista);
+            }
+
+        }
+        return MotoristasDaLinha;
+    }
+    public List<Motorista> GerarListaDeMotoristasVolta(Passageiro passageiro){
+        List<Motorista> AllMotoristas = motoristaRepository.findAll();
+        List<Motorista> MotoristasDaLinha = new ArrayList<>();
+        for (Motorista motorista:AllMotoristas
+        ) {
+            if (passageiro.getRetorno().equals(motorista.getRetorno())){
                 MotoristasDaLinha.add(motorista);
             }
 
