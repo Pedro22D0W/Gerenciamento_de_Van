@@ -95,6 +95,10 @@ export class VansAPIService {
     return this.client.get("http://localhost:8080/passageiro/get-my-motorista-volta", { headers: this.getHeaders() });
   }
   
+  GetCep(cep: string): Observable<any> {
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    return this.client.get(url);
+  }
 
 
 }
