@@ -23,8 +23,7 @@ public class Passageiro implements UserDetails {
     private String email;
     private String senha;
     private String cpf;
-    private Long cep;
-    private String complemento;
+    private String logradouro;
     private String destino;
     private Time retorno;
     private String telefone;
@@ -41,8 +40,7 @@ public class Passageiro implements UserDetails {
         this.email = data.email();
         this.senha =  new BCryptPasswordEncoder().encode(data.senha());;
         this.cpf = data.cpf();
-        this.cep = data.cep();
-        this.complemento = data.complemento();
+        this.logradouro = data.logradouro();
         this.destino = data.destino();
         this.retorno = data.retorno();
         this.telefone = data.telefone();
@@ -91,20 +89,12 @@ public class Passageiro implements UserDetails {
         this.cpf = cpf;
     }
 
-    public void setCep(Long cep) {
-        this.cep = cep;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
-    public Long getCep() {
-        return cep;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getComplemento() {
-        return complemento;
+    public String getLogradouro() {
+        return logradouro;
     }
 
     public void setDestino(String destino) {

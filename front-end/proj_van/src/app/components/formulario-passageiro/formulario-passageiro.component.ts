@@ -42,15 +42,10 @@ export class FormularioPassageiroComponent {
         Validators.minLength(11),
         Validators.maxLength(11)
       ]),
-      cep: new FormControl('', [
+      logradouro: new FormControl('', [
         Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength
-      ]),
-      complemento: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(100)
+        Validators.minLength(5),
+        Validators.maxLength(150)
       ]),
       destino: new FormControl('', [
         Validators.required,
@@ -88,8 +83,7 @@ export class FormularioPassageiroComponent {
       email: this.formularioForms.get('email')?.value,
       senha: this.formularioForms.get('senha')?.value,
       cpf: this.formularioForms.get('cpf')?.value,
-      cep: this.formularioForms.get('cep')?.value,
-      complemento: this.formularioForms.get('complemento')?.value,
+      logradouro: this.formularioForms.get('logradouro')?.value,
       destino: this.formularioForms.get('destino')?.value,
       telefone: this.formularioForms.get('telefone')?.value,
       linha: this.formularioForms.get('linha')?.value,
