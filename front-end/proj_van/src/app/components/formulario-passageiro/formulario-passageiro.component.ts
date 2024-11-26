@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BotaoPrimarioComponent } from '../botao-primario/botao-primario.component';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { VansAPIService } from '../../services/vans-api.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-formulario-passageiro',
@@ -16,8 +17,10 @@ import { VansAPIService } from '../../services/vans-api.service';
 export class FormularioPassageiroComponent {
   formularioForms: FormGroup;
   selectedFile!: File;
+  endereco: any;
+  complemento: any;
 
-  constructor(private service: VansAPIService) {
+  constructor(private service: VansAPIService,private client: HttpClient) {
     this.formularioForms = new FormGroup({
       nome: new FormControl('', [
         Validators.required,
@@ -39,9 +42,18 @@ export class FormularioPassageiroComponent {
         Validators.minLength(11),
         Validators.maxLength(11)
       ]),
+      cep: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8)
+      ]),
       logradouro: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
+        Validators.maxLength(150)
+      ]),
+      complemento: new FormControl('', [
+        Validators.required,
         Validators.maxLength(150)
       ]),
       destino: new FormControl('', [
@@ -107,6 +119,23 @@ export class FormularioPassageiroComponent {
       console.log('Formulário inválido. Por favor, verifique os campos.') ;
       console.log(this.formularioForms.value);
     }
+  }
+
+  GetCep() {
+    const cep = this.formularioForms.get('cep')?.value;
+  
+    this.client.get(`https://viacep.com.br/ws/${cep}/json/`)
+      .subscribe(
+        (response) => {
+          this.endereco = response;
+          const complemento = this.formularioForms.get('complemento')?.value || '';
+          const logradouro = `${this.endereco.logradouro} - ${complemento} - ${this.endereco.bairro} - ${this.endereco.localidade} - ${this.endereco.uf}`;
+          this.formularioForms.get('logradouro')?.setValue(logradouro);
+        },
+        (error) => {
+          console.error('Erro ao buscar o CEP:', error);
+        }
+      );
   }
 }
 
