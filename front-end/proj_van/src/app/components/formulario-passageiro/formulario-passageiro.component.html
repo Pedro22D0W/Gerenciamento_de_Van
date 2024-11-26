@@ -13,28 +13,8 @@
     <label for="cpf">CPF:</label>
     <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> 
 
-    <div>
-      <h2>Consulta de Endereço</h2>
-      <input
-        type="text"
-        [(ngModel)]="cep"
-        placeholder="Digite o CEP (somente números)"
-        maxlength="8"
-      />
-      <button (click)="buscarEndereco()">Buscar</button>
-    
-      <div *ngIf="erro" class="erro">{{ erro }}</div>
-    
-      <div *ngIf="endereco" class="resultado">
-        <p><strong>Logradouro:</strong> {{ endereco.logradouro }}</p>
-        <p><strong>Bairro:</strong> {{ endereco.bairro }}</p>
-        <p><strong>Cidade:</strong> {{ endereco.localidade }}</p>
-        <p><strong>Estado:</strong> {{ endereco.uf }}</p>
-      </div>
-    </div>
-
-    <label for="complemento">Complemento:</label>
-    <input id="complemento" formControlName="complemento" type="text" />
+    <label for="logradouro">Logradouro:</label>
+    <input id="logradouro" formControlName="logradouro" type="text" />
 
     <label for="destino">Destino:</label>
     <select id="destino" formControlName="destino">
