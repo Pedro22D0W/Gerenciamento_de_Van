@@ -13,8 +13,16 @@
     <label for="cpf">CPF:</label>
     <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> 
 
+    <label for="cep">CEP:</label>
+    <input id="cep" formControlName="cep" type="text" placeholder="Digite seu CEP sem traços" />
+    <label for="complemento">Complemento:</label>
+    <input id="complemento" formControlName="complemento" type="text" />  
+    <button type="button" (click)="GetCep()">Buscar CEP</button>
+
+
+
     <label for="logradouro">Logradouro:</label>
-    <input id="logradouro" formControlName="logradouro" type="text" />
+    <input id="logradouro" formControlName="logradouro" placeholder="Logradouro" readonly />
 
     <label for="destino">Destino:</label>
     <select id="destino" formControlName="destino">
