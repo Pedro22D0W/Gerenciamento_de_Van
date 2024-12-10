@@ -1,0 +1,73 @@
+<app-header></app-header>
+<app-header-2-passageiro></app-header-2-passageiro>
+
+<div class="dashboard-container">
+  <h1 class="dashboard-title">Dashboard Passageiro</h1>
+  <div class="dashboard-content">
+    <section class="motoristas">
+        <div *ngIf="motorista && motorista.length > 0">
+            <h2>Motorista Responsável pela ida:</h2>
+            <table>
+              <thead>
+                <tr>
+                  <!-- Algo -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of motorista">
+                  <td>{{ item.nome }}</td>
+                  <td>
+                    <button class="detail-button" (click)="abrirModal(item)">Ver detalhes</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div *ngIf="!motorista || motorista.length === 0">
+            <p>Nenhum motorista encontrado.</p>
+          </div>
+    </section>
+    <section class="motoristas">
+      <div *ngIf="motorista && motorista.length > 0">
+          <h2>Motorista Responsável pela volta:</h2>
+          <table>
+            <thead>
+              <tr>
+                <!-- Algo -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of motorista_volta">
+                <td>{{ item.nome }}</td>
+                <td>
+                  <button class="detail-button" (click)="abrirModal(item)">Ver detalhes</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div *ngIf="!motorista_volta || motorista_volta.length === 0">
+          <p>Nenhum motorista encontrado.</p>
+        </div>
+  </section>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedMotorista" class="modal">
+  <div class="modal-content">
+    <button class="modal-button" (click)="fecharModal()">x</button>
+    <div class="profile-picture-container">
+      <img [src]="selectedMotorista.profile" alt="" class="profile-picture" />
+    </div>
+    <h2>{{ selectedMotorista.nome }}</h2>
+    <ul class="info-list">
+      <li><strong>E-mail:</strong> {{ selectedMotorista.email }}</li>
+      <li><strong>CNH:</strong> {{ selectedMotorista.cnh }}</li>
+      <li><strong>Telefone:</strong> {{ selectedMotorista.telefone }}</li>
+      <li><strong>Linha:</strong> {{ selectedMotorista.linha }}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+@import "../../../styles/variables";
+
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.border-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: auto;
+    background-color: $backgroundColor;
+    border: 2px solid $backgroundColor;
+    box-shadow: 0 0px 0px $shadowColor;
+    padding: 30px;
+    border-radius: 3px;
+    text-align: center;
+    min-height: 100vh; /* Garante que o conteúdo ocupe a altura total da tela */
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $primaryColor;
+    width: 100%; /* Inicialmente ocupa toda a largura */
+    max-width: 600px; /* Define um limite de largura */
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px $shadowColor;
+    color: $backgroundColor;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        font-weight: bold;
+
+        input {
+            background: none;
+            border: none;
+            border-bottom: 1px solid $backgroundColor;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            color: $backgroundColor;
+            padding: 5px;
+        }
+    }
+}
+
+#lembrar_senha{
+    max-width: 15%;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    
+}
+
+#rememberMe{
+    margin: 0;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-section {
+        padding: 30px;
+        margin: 20px auto;
+        width: 90%; /* Ocupa quase toda a largura da tela */
+    }
+
+    form input {
+        height: 40px; /* Reduz o tamanho dos campos em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 10px;
+        border-radius: 5px; /* Reduz o arredondamento em telas menores */
+    }
+
+    form input {
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+    }
+}

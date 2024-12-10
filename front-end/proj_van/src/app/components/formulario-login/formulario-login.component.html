@@ -1,0 +1,24 @@
+
+<div class="border-content">
+    <img src="logo.png" alt="Logo" width="200" height="200"> 
+        <section class="form-section">
+            <form [formGroup]="loginForms" (ngSubmit)="onSubmit()"> 
+                <label>E-mail:</label>
+                <input id="email" formControlName="email" type="email" />
+
+                <label>Senha:</label>
+                <input id="senha" formControlName="senha" type="password" />
+                <div id="lembrar_senha">
+                    <input type="checkbox" id="rememberMe" formControlName="rememberMe">
+                    <label for="rememberMe"> Lembrar Senha</label> 
+                </div>
+               
+                <btn-primary 
+                    btn-text = "Login"
+                    (submit) = "onSubmit()"
+                    [disabled] = "!loginForms.valid"
+                ></btn-primary>
+        
+            </form>
+        </section>
+</div>

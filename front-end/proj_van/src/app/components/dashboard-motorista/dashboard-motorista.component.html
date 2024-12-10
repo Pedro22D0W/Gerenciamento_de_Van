@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-header-2-motorista></app-header-2-motorista>
+<div class="dashboard-container">
+  <h1 class="dashboard-title">Dashboard Motorista</h1>
+  <div class="dashboard-content">
+    <section class="passageiros">
+      <h2>Passageiros que pegarão o transporte:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros1">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroLista1(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Passageiros que não pegarão o transporte:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros2">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroLista2(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="passageiros">
+      <h2>Passageiros que pegarão o transporte na volta:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros_volta1">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroVolta1(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Passageiros que não pegarão o transporte na volta:</h2>
+      <table>
+        <thead>
+          <tr>
+            <!-- adicionar o que for necessário -->
+          </tr>
+        <tbody>
+          <tr *ngFor="let passageiro of passageiros_volta2">
+            <td (click)="abrirModal(passageiro)" style="cursor: pointer">{{ passageiro.nome }}</td>
+            <td>{{ passageiro.destino }}</td>
+            <td>
+              <button class="delete-button" (click)="removerPassageiroVolta2(passageiro)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedPassageiro" class="modal">
+  <div class="modal-content">
+    <button class="modal-button" (click)="fecharModal()">x</button>
+    <div class="profile-picture-container">
+      <img [src]="selectedPassageiro.profile" alt="" class="profile-picture" />
+    </div>
+    <h2>{{ selectedPassageiro.nome }}</h2>
+    <ul class="info-list">
+      <li><strong>E-mail:</strong> {{ selectedPassageiro.email }}</li>
+      <li><strong>Endereço:</strong> {{ selectedPassageiro.logradouro }}</li>
+      <li><strong>Telefone:</strong> {{ selectedPassageiro.telefone }}</li>
+      <li><strong>Destino:</strong> {{ selectedPassageiro.destino }}</li>
+      <li><strong>Horário:</strong> {{ selectedPassageiro.retorno }}</li>
+      <li><strong>Linha:</strong> {{ selectedPassageiro.linha }}</li>
+    </ul>
+  </div>
+</div>
+

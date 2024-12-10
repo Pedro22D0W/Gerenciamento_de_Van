@@ -19,10 +19,16 @@
                 <a href="cadastro-passageiro">Cadastrar Passageiro</a>
             </div>
         </div>
+
+        <div class="dropdown">
+            <a href="financeiro">
+                <button class="nav-btn">Financeiro</button>
+            </a>
+        </div>
     </div>
 
-    <!-- <div class="profile-container">
+    <div class="profile-container">
         <span class="welcome-text">Bem-vindo, Usuário</span> 
-        <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
-    </div> -->
+        <button class="logout-btn" (click)="logOut()" >Logout</button>
+    </div>
 </header>

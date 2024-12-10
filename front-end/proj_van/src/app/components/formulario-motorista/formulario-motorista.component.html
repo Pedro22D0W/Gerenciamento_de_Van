@@ -3,6 +3,9 @@
       <label for="nome">Nome Completo:</label>
       <input id="nome" formControlName="nome" type="text" />
 
+      <label for="email">E-mail:</label>
+      <input id="email" formControlName="email" type="email" />
+
       <label for="senha">Senha:</label>
       <input id="senha" formControlName="senha" type="password" />
   
@@ -14,6 +17,17 @@
 
       <label for="linha">Linha:</label>
       <input id="linha" formControlName="linha" type="number" />
+
+      <label for="retorno">Horário de retorno:</label>
+      <select id="retorno" formControlName="retorno">
+      <option value="11:30:00">11h30 </option>
+      <option value="12:00:00">12h</option>
+      <option value="17:00:00">17h</option>
+      <option value="18:00:00">18h</option>
+      </select>
+      
+      <label for="file">Foto de perfil:</label>
+      <input id="file" type="file" (change)="onFileSelected($event)" />
   
       <btn-primary 
         btn-text="Submeter Formulário"

@@ -4,14 +4,25 @@
     <label for="nome">Nome Completo:</label>
     <input id="nome" formControlName="nome" type="text" />
 
+    <label for="email">E-mail:</label>
+    <input id="email" formControlName="email" type="email" />
+
     <label for="senha">Senha:</label>
     <input id="senha" formControlName="senha" type="password" />
 
     <label for="cpf">CPF:</label>
     <input id="cpf" formControlName="cpf" type="text" placeholder="Digite seu CPF sem pontos ou traços" /> 
 
+    <label for="cep">CEP:</label>
+    <input id="cep" formControlName="cep" type="text" placeholder="Digite seu CEP sem traços" />
+    <label for="complemento">Complemento:</label>
+    <input id="complemento" formControlName="complemento" type="text" />  
+    <button type="button" (click)="GetCep()">Buscar CEP</button>
+
+
+
     <label for="logradouro">Logradouro:</label>
-    <input id="logradouro" formControlName="logradouro" type="text" />
+    <input id="logradouro" formControlName="logradouro" placeholder="Logradouro" readonly />
 
     <label for="destino">Destino:</label>
     <select id="destino" formControlName="destino">
@@ -33,6 +44,8 @@
       <option value="17:00:00">17h</option>
       <option value="18:00:00">18h</option>
     </select>
+    <label for="file">Foto de perfil:</label>
+    <input id="file" type="file" (change)="onFileSelected($event)" />
 
     <btn-primary 
       btn-text = "Submeter Formulário"

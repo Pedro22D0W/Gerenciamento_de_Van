@@ -1,0 +1,44 @@
+<section class="form-section">
+    <form [formGroup]="formularioBoleto" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <label for="mes">Mês:</label>
+      <select id="mes" formControlName="mes">
+        <option value="">Selecione um mês</option>
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+        <option value="Maio">Maio</option>
+        <option value="Junho">Junho</option>
+        <option value="Julho">Julho</option>
+        <option value="Agosto">Agosto</option>
+        <option value="Setembro">Setembro</option>
+        <option value="Outubro">Outubro</option>
+        <option value="Novembro">Novembro</option>
+        <option value="Dezembro">Dezembro</option>
+      </select>
+  
+      <label for="dataValidade">Data de Validade:</label>
+      <input id="dataValidade" formControlName="dataValidade" type="date" />
+  
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status">
+        <option value="">Selecione um status</option>
+        <option value="pago">Pago</option>
+        <option value="pendente">Pendente</option>
+      </select>
+  
+      <label for="valor">Valor:</label>
+      <input id="valor" formControlName="valor" type="number" placeholder="R$ 0,00" step="0.01" />
+
+      
+      <label for="file">Boleto:</label>
+      <input id="file" type="file" (change)="onFileSelected($event)" />
+  
+  
+      <btn-primary 
+        btn-text="Cadastrar Boleto"
+        (submit)="onSubmit()"
+        [disabled]="!formularioBoleto.valid"
+      ></btn-primary>
+    </form>
+  </section>  

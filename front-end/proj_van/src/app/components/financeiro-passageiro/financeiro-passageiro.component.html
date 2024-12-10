@@ -1,0 +1,38 @@
+<main>
+    <app-header></app-header>
+    <app-header-financeiro-passageiro></app-header-financeiro-passageiro>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Controle de Pagamentos</h1>
+        <div class="dashboard-content">
+            <section class="passageiros">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Boletos</th>
+                      <th>Status de Pagamento</th>
+                      <th>Data de Vencimento</th>
+                      <th>Valor a Pagar</th>
+                      <th>Baixar Boleto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let boleto of boletos">
+                      <td>{{ boleto.id }}</td>
+                      <td>{{ boleto.status }}</td>
+                      <td>{{ boleto.dataVencimento | date: 'dd/MM/yyyy' }}</td>
+                      <td>{{ boleto.valor | currency: 'BRL' }}</td>
+                      <td>
+                        <button (click)="download(boleto.link)" class="botao">Baixar</button>
+                      </td>
+                    </tr>             
+                  </tbody>
+                </table>
+              </section>
+              <section class="botao-secundario">
+                <a href="/dashboard-passageiro">
+                  <button class="btn-secundario">Voltar</button>
+                </a>
+              </section>
+        </div>
+    </div>
+</main>
