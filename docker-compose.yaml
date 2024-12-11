@@ -1,3 +1,4 @@
+
 services:
   backend:
     build: ./back-end/proj_vans
@@ -18,11 +19,10 @@ services:
   frontend:
     build: ./front-end/proj_van
     ports:
-      - "4200:4200"
+      - "80:80"
     volumes:
       - ./front-end/proj_van:/app  # Mapear o código local para dentro do container
       - /app/node_modules  # Ignorar node_modules para evitar conflito
-    
     environment:
       - CHOKIDAR_USEPOLLING=true  # Necessário para que o hot-reload funcione no Docker
     depends_on:
