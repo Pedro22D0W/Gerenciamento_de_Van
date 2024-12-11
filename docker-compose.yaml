@@ -19,7 +19,7 @@ services:
   frontend:
     build: ./front-end/proj_van
     ports:
-      - "4200:4200"
+      - "80:80"
     volumes:
       - ./front-end/proj_van:/app  # Mapear o código local para dentro do container
       - /app/node_modules  # Ignorar node_modules para evitar conflito
@@ -40,19 +40,6 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-    networks:
-      - app-network
-
-  nginx:
-    build: ./nginx
-    ports:
-      - "80:80"  # Expor a aplicação na porta 80
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro  # Adicionar a configuração do Nginx
-      - ./front-end/proj_van/dist:/usr/share/nginx/html:ro  # Servir os arquivos Angular
-    depends_on:
-      - frontend
-      - backend
     networks:
       - app-network
 
