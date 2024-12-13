@@ -24,7 +24,7 @@ export class VansAPIService {
   }
 
   login(loginform: any){
-    return this.client.post<LoginResponse>("http://localhost:8080/auth", loginform).pipe(
+    return this.client.post<LoginResponse>("/api/auth", loginform).pipe(
         tap((value) => {
           sessionStorage.setItem("token",value.token)
           sessionStorage.setItem("role",value.role)
@@ -34,49 +34,49 @@ export class VansAPIService {
   }
 
   StoreMotorista(motorista: any): Observable<any>{
-    return this.client.post("http://localhost:8080/motorista/store",motorista,{ headers: this.getHeaders() })
+    return this.client.post("/api/motorista/store",motorista,{ headers: this.getHeaders() })
   }
 
   StorePassageiro(passageiro: any): Observable<any>{
-    return this.client.post("http://localhost:8080/passageiro/store",passageiro,{ headers: this.getHeaders() })
+    return this.client.post("/api/passageiro/store",passageiro,{ headers: this.getHeaders() })
   }
 
   StoreBoleto(boleto: any): Observable<any>{
-    return this.client.post("http://localhost:8080/boleto/store",boleto,{ headers: this.getHeaders() })
+    return this.client.post("/api/boleto/store",boleto,{ headers: this.getHeaders() })
   }
 
   GetMotoristas(): Observable<any>{
-    return this.client.get("http://localhost:8080/motorista/getAll",{ headers: this.getHeaders() })
+    return this.client.get("/api/motorista/getAll",{ headers: this.getHeaders() })
   }
 
   GetPassageiros(): Observable<any>{
-    return this.client.get("http://localhost:8080/passageiro/getAll",{ headers: this.getHeaders() })
+    return this.client.get("/api/passageiro/getAll",{ headers: this.getHeaders() })
   }
 
   GetBoleto(): Observable<any>{
-    return this.client.get("http://localhost:8080/boleto/getAll",{ headers: this.getHeaders() })
+    return this.client.get("/api/boleto/getAll",{ headers: this.getHeaders() })
   }
 
   GetPassageirosDaLinha(): Observable<any>{
-    return this.client.get("http://localhost:8080/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
+    return this.client.get("/api/motorista/getPassageirosDaLinha",{ headers: this.getHeaders() })
   }
   GetPassageirosDaVolta(): Observable<any>{
-    return this.client.get("http://localhost:8080/motorista/getPassageirosDaVolta",{ headers: this.getHeaders() })
+    return this.client.get("/api/motorista/getPassageirosDaVolta",{ headers: this.getHeaders() })
   }
 
   // Método para buscar boletos de um passageiro específico
   GetBoletosByPassageiroId(passageiroId: string): Observable<any> {
-    return this.client.get(`http://localhost:8080/passageiro/boletos/${passageiroId}`, { headers: this.getHeaders() });
+    return this.client.get(`/api/passageiro/boletos/${passageiroId}`, { headers: this.getHeaders() });
   }
   
   GetBoletosPassageiro(): Observable<any> {
-    return this.client.get('http://localhost:8080/passageiro/boletos-passageiro', { headers: this.getHeaders() });
+    return this.client.get('/api/passageiro/boletos-passageiro', { headers: this.getHeaders() });
   }
   GetMotoristaProfile(): Observable<any> {
-    return this.client.get('http://localhost:8080/motorista/get-profile', { headers: this.getHeaders(),responseType: 'text'  });
+    return this.client.get('/api/motorista/get-profile', { headers: this.getHeaders(),responseType: 'text'  });
   }
   GetPassageiroProfile(): Observable<any> {
-    return this.client.get('http://localhost:8080/passageiro/get-profile', { headers: this.getHeaders(),responseType: 'text' });
+    return this.client.get('/api/passageiro/get-profile', { headers: this.getHeaders(),responseType: 'text' });
   }
 
   DownloadBoleto(boletoURL: string): Observable<any> {
@@ -85,14 +85,14 @@ export class VansAPIService {
   }
 
   updateStatus(boletoId: string): Observable<any> {
-   return this.client.put(`http://localhost:8080/boleto/${boletoId}/updateStatus`, { headers: this.getHeaders() });
+   return this.client.put(`/api/boleto/${boletoId}/updateStatus`, { headers: this.getHeaders() });
   } 
 
   GetMyMotorista(): Observable<any> {
-    return this.client.get("http://localhost:8080/passageiro/get-my-motorista", { headers: this.getHeaders() });
+    return this.client.get("/api/passageiro/get-my-motorista", { headers: this.getHeaders() });
   }
   GetMyMotoristaVolta(): Observable<any> {
-    return this.client.get("http://localhost:8080/passageiro/get-my-motorista-volta", { headers: this.getHeaders() });
+    return this.client.get("/api/passageiro/get-my-motorista-volta", { headers: this.getHeaders() });
   }
   
 
