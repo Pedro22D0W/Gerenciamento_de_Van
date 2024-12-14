@@ -17,8 +17,8 @@ RUN npm run build
 
 FROM nginx:alpine
 COPY --from=builder /app/dist/proj_van/browser usr/share/nginx/html
-COPY /nginx/nginx.conf /etc/nginx/nginx/conf
-COPY /nginx/mime.types /etc/nginx/nginx/mime.types
+COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+COPY /nginx/mime.types /etc/nginx/mime.types
 
 EXPOSE 80
 
